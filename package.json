@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "webpack serve --config webpack.config.mjs --mode development",
-    "build": "webpack --config webpack.config.mjs --mode production",
+    "generate": "python render_static.py",
+    "build": "npm run generate && webpack --config webpack.config.mjs --mode production",
+    "dev": "python render_static.py && webpack serve --config webpack.config.mjs",
     "lint": "eslint frontend/js --ext .js"
   },
   "browserslist": [
@@ -14,8 +15,8 @@
     "maintained node versions"
   ],
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "@popperjs/core": "^2.11.8"
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.24.3",
@@ -25,14 +26,14 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.10.0",
     "css-minimizer-webpack-plugin": "^5.0.1",
+    "eslint": "^8.57.0",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss": "^8.4.31",
     "postcss-loader": "^7.3.3",
     "sass": "^1.76.0",
-    "sass-loader": "^13.3.2",
+    "sass-loader": "^15.0.0",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4",
-    "eslint": "^8.57.0"
+    "webpack-dev-server": "^5.0.4"
   }
 }
