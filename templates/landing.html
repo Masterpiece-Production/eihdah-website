@@ -82,9 +82,11 @@
 <!-- ── CTA ──────────────────────────────────────────────── -->
 <section id="cta" class="py-5 text-center">
   <h2 class="h4 mb-3">Be first to try EihDah</h2>
-  <form class="row g-2 justify-content-center" action="/subscribe" method="POST">
+  <form action="https://formspree.io/f/xyzaabcd" method="POST" class="row g-2 justify-content-center">
     <div class="col-auto">
       <input type="email" name="email" class="form-control" placeholder="Your email" required>
+      <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_redirect" value="https://eihdah.com/thanks.html">
     </div>
     <div class="col-auto">
       <button type="submit" class="btn btn-primary">Join Waitlist</button>

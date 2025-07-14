@@ -43,6 +43,10 @@ $font-family-sans-serif: 'Inter', system-ui, sans-serif;
 
 // 5) CTA section
 #cta {
-  background: linear-gradient(135deg, $primary 0%, $secondary 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+  color:#fff;
+  input[type=email] { max-width:260px; }
+}
+#hero {
+  min-height: 90vh;         // friendlier on mobile
 }
