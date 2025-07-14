@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Contact – EihDah{% endblock %}
+{% block body_class %}page-contact{% endblock %}
+
+{% block content %}
+<section class="container py-5" style="max-width:640px">
+  <h1 class="h3 mb-4 text-center">Contact Us</h1>
+  <p class="mb-4 text-muted text-center">We’d love to hear from you. Fill out the form below or email us directly at <a href="mailto:support@eihdah.com">support@eihdah.com</a>.</p>
+  <form action="mailto:support@eihdah.com" method="post" enctype="text/plain" class="row g-3">
+    <div class="col-12">
+      <label class="form-label">Your Name</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="col-12">
+      <label class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="col-12">
+      <label class="form-label">Message</label>
+      <textarea name="message" rows="4" class="form-control" required></textarea>
+    </div>
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-primary px-4">Send</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

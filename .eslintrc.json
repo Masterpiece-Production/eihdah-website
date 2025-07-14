@@ -1,0 +1,12 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": false
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {}
+}

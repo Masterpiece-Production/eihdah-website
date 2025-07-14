@@ -1,0 +1,4 @@
+# .eslintignore
+
+static/
+node_modules/

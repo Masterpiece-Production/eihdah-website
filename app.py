@@ -1,4 +1,5 @@
 # EihDah-Website/app.py
+""" """
 
 import os
 import csv
@@ -27,18 +28,26 @@ def inject_globals():
 # ── Routes ───────────────────────────────────────────────
 @app.route("/")
 def landing():
-    """Render investor‑facing landing page."""
+    """Render landing page."""
     return render_template("landing.html")
 
 
 @app.route("/privacy")
-def privacy():
+def privacy() -> str:
+    """Render privacy page."""
     return render_template("privacy.html")
 
 
 @app.route("/terms")
-def terms():
+def terms() -> str:
+    """Render terms page."""
     return render_template("terms.html")
+
+
+@app.route('/contact')
+def contact() -> str:
+    """Render Contact page."""
+    return render_template('contact.html')
 
 
 @app.route("/subscribe", methods=["POST"])
@@ -48,7 +57,8 @@ def subscribe():
     if email:
         SUBSCRIBER_CSV.parent.mkdir(parents=True, exist_ok=True)
         with SUBSCRIBER_CSV.open("a", newline="") as fh:
-            csv.writer(fh).writerow([datetime.datetime.utcnow().isoformat(), email])
+            csv.writer(fh).writerow(
+                [datetime.datetime.utcnow().isoformat(), email])
     # Redirect back to landing with anchor so user sees confirmation.
     return redirect(url_for("landing") + "#cta")
 

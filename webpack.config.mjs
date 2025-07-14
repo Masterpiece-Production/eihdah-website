@@ -23,7 +23,7 @@ export default {
     styles: "./frontend/scss/main.scss",
   },
   output: {
-    filename: "[name].[contenthash].js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "static/dist"),
     publicPath: "/static/dist/",
     /**
@@ -94,7 +94,7 @@ export default {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
     new CleanWebpackPlugin(),
   ],
   optimization: {

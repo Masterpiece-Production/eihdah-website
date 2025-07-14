@@ -1,9 +1,11 @@
 // frontend/js/main.js
 // ------------------------------------------------------------
 // Lightweight JS for EihDah landing page.
-// - Smooth‑scroll anchor links
+// - Smooth-scroll anchor links
 // - Form submission success toast
 // ------------------------------------------------------------
+
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 /* ── Smooth scroll for anchor links ─────────────────────── */
 document.addEventListener("click", (e) => {
@@ -18,7 +20,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-/* ── Waitlist form mini‑toast ───────────────────────────── */
+/* ── Waitlist form mini-toast ───────────────────────────── */
 const waitlistForm = document.querySelector("form[action='/subscribe']");
 if (waitlistForm) {
   waitlistForm.addEventListener("submit", () => {
@@ -26,7 +28,7 @@ if (waitlistForm) {
       const toast = document.createElement("div");
       toast.className = "position-fixed bottom-0 end-0 m-3 alert alert-success shadow";
       toast.style.zIndex = 1080;
-      toast.textContent = "Thanks! We'll be in touch soon.";
+      toast.textContent = "You’re on the wait‑list! 🎉";
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 4000);
     }, 500);
