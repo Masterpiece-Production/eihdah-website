@@ -1,5 +1,6 @@
 # EihDah-Website/app.py
-""" """
+"""Flask web app for EihDah.com, a static site for a fictional product.
+"""
 
 import os
 import csv
@@ -28,26 +29,34 @@ def inject_globals():
 # ── Routes ───────────────────────────────────────────────
 @app.route("/")
 def landing():
-    """Render landing page."""
     return render_template("landing.html")
 
 
+# ── Privacy ──
 @app.route("/privacy")
-def privacy() -> str:
-    """Render privacy page."""
+@app.route("/privacy.html")          # <- alias
+def privacy():
     return render_template("privacy.html")
 
 
+# ── Terms ──
 @app.route("/terms")
-def terms() -> str:
-    """Render terms page."""
+@app.route("/terms.html")            # <- alias
+def terms():
     return render_template("terms.html")
 
 
-@app.route('/contact')
-def contact() -> str:
-    """Render Contact page."""
-    return render_template('contact.html')
+# ── Contact ──
+@app.route("/contact")
+@app.route("/contact.html")          # <- alias
+def contact():
+    return render_template("contact.html")
+
+
+# ── Thanks page (new) ──
+@app.route("/thanks.html")
+def thanks():
+    return render_template("thanks.html")
 
 
 @app.route("/subscribe", methods=["POST"])
