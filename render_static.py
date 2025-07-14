@@ -13,6 +13,7 @@ PAGES = {
     "privacy.html": "privacy.html",
     "terms.html": "terms.html",
     "contact.html": "contact.html",
+    "thanks.html":  "thanks.html",
 }
 
 with app.app_context():
