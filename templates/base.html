@@ -5,33 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% block title %}EihDah – AI Sentiment Analysis{% endblock %}</title>
-  <meta name="description" content="AI-powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.">
+  <title>EihDah – AI Sentiment Analysis</title>
+  <meta name="description" content="AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.">
   <meta name="keywords" content="EihDah, sentiment analysis, AI, social media analytics, public opinion, YouTube analytics">
-  <link rel="canonical" href="https://eihdah.com{% if request.path != '/' %}{{ request.path }}{% endif %}">
+  <link rel="canonical" href="https://eihdah.com/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EihDah">
   <meta property="og:title" content="EihDah – AI Sentiment Analysis Platform">
-  <meta property="og:description" content="AI-powered public sentiment insights from real conversations.">
-  <meta property="og:image" content="{{ url_for('static', filename='img/og-cover.png', _external=True) }}">
-  <meta property="og:url" content="https://eihdah.com{% if request.path != '/' %}{{ request.path }}{% endif %}">
+  <meta property="og:description" content="AI‑powered public sentiment insights from real conversations.">
+  <meta property="og:image" content="/static/img/og-cover.png">
+  <meta property="og:url" content="https://eihdah.com/">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="EihDah – AI Sentiment Analysis Platform">
-  <meta name="twitter:description" content="AI-powered public sentiment insights from real conversations.">
-  <meta name="twitter:image" content="{{ url_for('static', filename='img/og-cover.png', _external=True) }}">
+  <meta name="twitter:description" content="AI‑powered public sentiment insights from real conversations.">
+  <meta name="twitter:image" content="/static/img/og-cover.png">
 
   <!-- Favicon -->
-  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+  <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
 
-  {% block head_extra %}{% endblock %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='dist/landing.css') }}">
+  <!-- Styles -->
+  <link rel="stylesheet" href="/static/dist/landing.css">
 </head>
-<body class="{% block body_class %}{% endblock %}">
+<body class="page-landing">
 
+  <!-- Header include (static) -->
   {% include 'partials/header.html' ignore missing %}
 
   <main id="content">
@@ -40,18 +41,8 @@
 
   {% include 'partials/footer.html' ignore missing %}
 
-  <script defer src="{{ url_for('static', filename='dist/main.js') }}"></script>
-  {% block scripts %}{% endblock %}
-
-  {% if GA_TRACKING_CODE %}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_TRACKING_CODE }}"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ GA_TRACKING_CODE }}');
-  </script>
-  {% endif %}
+  <!-- Scripts -->
+  <script defer src="/static/dist/main.js"></script>
 </body>
 </html>
 <!-- End Of File -->
