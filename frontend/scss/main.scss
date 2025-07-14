@@ -1,0 +1,48 @@
+// frontend/scss/main.scss
+// ------------------------------------------------------------
+// Core styles for EihDah landing page
+// ------------------------------------------------------------
+
+// 1) Import Bootstrap (installed via npm)
+@import "~bootstrap/scss/bootstrap";
+
+// 2) Brand variables override
+$primary: #4f46e5; // indigo‑600
+$secondary: #8b5cf6; // violet‑500
+$font-family-sans-serif: 'Inter', system-ui, sans-serif;
+
+// 3) Custom hero styles
+#hero {
+  background: radial-gradient(ellipse at top, rgba(#4f46e5,0.12), transparent),
+              radial-gradient(ellipse at bottom, rgba(#8b5cf6,0.12), transparent);
+  color: #fff;
+  h1 { max-width: 680px; }
+}
+
+.page-landing {
+  scroll-behavior: smooth;
+}
+
+// 4) Timeline list util
+.timeline {
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: $primary;
+    }
+  }
+}
+
+// 5) CTA section
+#cta {
+  background: linear-gradient(135deg, $primary 0%, $secondary 100%);
+  color: #fff;
+}

@@ -1,0 +1,5 @@
+# requirements.txt
+
+Flask>=2.3,<2.4
+python-dotenv>=1.0
+Werkzeug>=2.3,<2.4
