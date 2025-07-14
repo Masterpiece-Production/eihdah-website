@@ -1,49 +1,68 @@
-// EihDah-website/webpack.config.mjs
+/* eslint-env node */
+// -----------------------------------------------------------------------------
+// Webpack configuration – EihDah marketing + app
+// -----------------------------------------------------------------------------
 
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
+// -----------------------------------------------------------------------------
+// Paths -----------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname  = dirname(__filename);
 
+const SRC_JS    = './frontend/js/main.js';
+const SRC_SCSS  = './frontend/scss/pages/_landing.scss'; // marketing bundle
+const SRC_SCSS_APP = './frontend/scss/main.scss';        // legacy / app styles
+const DIST_DIR  = path.resolve(__dirname, 'static/dist');
+
+// -----------------------------------------------------------------------------
+// Helpers ---------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+/**
+ * Returns true if NODE_ENV === 'production'. Used for devtool + mode toggles.
+ */
+const isProd = process.env.NODE_ENV === 'production';
+
+// -----------------------------------------------------------------------------
+// Webpack export ---------------------------------------------------------------
+// -----------------------------------------------------------------------------
 export default {
-  mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  /**
-   * Explicitly target modern browsers running in a web context so Webpack can
-   * choose a default chunk format. Fixes the "no default script chunk format"
-   * error you just hit on build.
-   */
-  target: ["web", "es2020"],
+  mode: isProd ? 'production' : 'development',
+  target: ['web', 'es2020'],
 
   entry: {
-    main: "./frontend/js/main.js",
-    styles: "./frontend/scss/main.scss",
+    main: SRC_JS,          // JS bundle (Bootstrap JS, interactivity)
+    landing: SRC_SCSS,     // landing-page CSS only
+    app: SRC_SCSS_APP,     // dashboard / legacy CSS (optional)
   },
+
   output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "static/dist"),
-    publicPath: "/static/dist/",
-    /**
-     * Ensure a valid script chunk format is selected (array‑push works in all
-     * standard browsers). This eliminates the default‑format ambiguity.
-     */
-    chunkFormat: "array-push",
-    clean: true,
+    path: DIST_DIR,
+    filename: '[name].js',
+    publicPath: '/static/dist/',
+    chunkFormat: 'array-push', // ensures universal chunk format
+    clean: true,              // removes old files every build
   },
+
+  devtool: isProd ? false : 'source-map',
+
   module: {
     rules: [
+      // JS transpile ----------------------------------------------------------
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
               [
-                "@babel/preset-env",
+                '@babel/preset-env',
                 {
                   targets: { esmodules: true },
                   modules: false,
@@ -53,63 +72,72 @@ export default {
           },
         },
       },
+
+      // Sass / CSS ------------------------------------------------------------
       {
         test: /\.s?[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: { importLoaders: 2 },
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: ["autoprefixer"],
+                plugins: ['autoprefixer'],
               },
             },
           },
-          "sass-loader",
+          {
+            loader: 'sass-loader',
+            options: {
+              // Suppress node_module deprecation spam until Bootstrap v6
+              sassOptions: { quietDeps: true },
+            },
+          },
         ],
       },
+
+      // Images ---------------------------------------------------------------
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        type: "asset",
+        type: 'asset',
         parser: {
-          dataUrlCondition: {
-            maxSize: 8 * 1024,
-          },
+          dataUrlCondition: { maxSize: 8 * 1024 },
         },
         generator: {
-          filename: "img/[name].[hash][ext][query]",
+          filename: 'img/[name].[hash][ext][query]',
         },
       },
+
+      // Fonts ----------------------------------------------------------------
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "fonts/[name].[hash][ext][query]",
+          filename: 'fonts/[name].[hash][ext][query]',
         },
       },
     ],
   },
+
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].css" }),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
     new CleanWebpackPlugin(),
   ],
+
   optimization: {
-    minimizer: [
-      "...", // extend existing minimizers
-      new CssMinimizerPlugin(),
-    ],
+    minimizer: ['...', new CssMinimizerPlugin()],
     splitChunks: {
-      chunks: "all",
+      chunks: 'all',
     },
   },
-  devtool: process.env.NODE_ENV === "production" ? false : "source-map",
+
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "static"),
+      directory: path.resolve(__dirname, 'static'),
     },
     port: 8080,
     hot: true,
@@ -117,13 +145,14 @@ export default {
       writeToDisk: true,
     },
     proxy: {
-      "/": "http://localhost:5000",
+      '/': 'http://localhost:5000', // Flask backend
     },
   },
+
   resolve: {
-    extensions: [".js", ".mjs"],
+    extensions: ['.js', '.mjs'],
     alias: {
-      "@img": path.resolve(__dirname, "static/img"),
+      '@img': path.resolve(__dirname, 'static/img'),
     },
   },
 };

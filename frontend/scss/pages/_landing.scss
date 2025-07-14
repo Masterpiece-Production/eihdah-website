@@ -1,0 +1,49 @@
+// -----------------------------------------------------------------------------
+// pages/_landing.scss  (compile entry)
+// -----------------------------------------------------------------------------
+@use "~bootstrap/scss/bootstrap" as *;
+@use "../_variables"   as vars;
+@use "../_mixins"      as mix;
+@use "../_utilities"   as utils;
+@use "../_components";
+
+body.page-landing {
+  font-family: vars.$font-family-sans-serif;
+  scroll-behavior: smooth;
+}
+
+#hero {
+  min-height: 90vh;
+  @include mix.fluid-type(utils.$h1-min, utils.$h1-max);
+  background:
+    radial-gradient(ellipse at top, rgba(vars.$primary, 0.12), transparent),
+    radial-gradient(ellipse at bottom, rgba(vars.$secondary, 0.12), transparent);
+  color: vars.$white;
+}
+
+#cta {
+  background: linear-gradient(135deg, vars.$primary 0%, vars.$secondary 100%);
+  color: vars.$white;
+  input[type="email"] { max-width: 260px; }
+}
+#features {
+  @include utils.spacing(padding, 2);
+  h2 {
+    @include mix.fluid-type(utils.$h2-min, utils.$h2-max);
+  }
+  .feature-item {
+    @include utils.spacing(margin-bottom, 1);
+    h3 {
+      @include mix.fluid-type(utils.$h3-min, utils.$h3-max);
+    }
+  }
+}
+#footer {
+  background: vars.$black;
+  color: vars.$white;
+  @include utils.spacing(padding, 2);
+  a {
+    color: vars.$secondary;
+    &:hover { color: vars.$primary; }
+  }
+}

@@ -1,0 +1,16 @@
+// -----------------------------------------------------------------------------
+// frontend/scss/_utilities.scss
+// -----------------------------------------------------------------------------
+// Spacing utilities
+@mixin spacing($property, $multiplier: 1) {
+  #{$property}: calc(#{$multiplier * 0.25}rem);
+}
+
+// typographic scale
+$h1-min: 2.2rem;
+$h1-max: 3.0rem;
+$h2-min: 1.8rem;
+$h2-max: 2.4rem;
+$h3-min: 1.6rem;
+$h3-max: 2.0rem;
+
