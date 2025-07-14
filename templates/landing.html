@@ -4,10 +4,14 @@
 
 {% block content %}
 <!-- ── Hero ─────────────────────────────────────────────── -->
-<section id="hero" class="vh-100 d-flex flex-column justify-content-center align-items-center text-center">
+<section id="hero"
+         class="vh-100 d-flex flex-column justify-content-center align-items-center text-center text-white"
+         style="background:
+           radial-gradient(ellipse at top, rgba(79,70,229,.30), transparent),
+           radial-gradient(ellipse at bottom, rgba(139,92,246,.30), transparent);">
   <div class="container-lg">
     <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="EihDah logo" class="mb-4" width="160" height="160">
-    <h1 class="display-4 fw-bold mb-3">Decode Public Sentiment with AI-Powered Insights</h1>
+    <h1 class="display-4 fw-bold mb-3">Decode Public Sentiment with AI‑Powered Insights</h1>
     <p class="lead mb-4">Turning social conversations into actionable analytics across YouTube, Instagram, X, and more.</p>
     <a href="#cta" class="btn btn-primary btn-lg">Join the Waitlist</a>
   </div>
@@ -27,7 +31,7 @@
     </div>
     <div class="col-md-4">
       <div class="card shadow-sm h-100 border-0">
-        <img src="{{ url_for('static', filename='img/feature-wordcloud.png') }}" class="card-img-top img-fluid" alt="Keyword word-cloud screenshot" loading="lazy" decoding="async">
+        <img src="{{ url_for('static', filename='img/feature-wordcloud.png') }}" class="card-img-top img-fluid" alt="Keyword word‑cloud screenshot" loading="lazy" decoding="async">
         <div class="card-body">
           <h3 class="h5">Keyword & Theme Clouds</h3>
           <p class="card-text small">Visualise hot topics instantly to guide content & messaging.</p>
@@ -49,7 +53,7 @@
 <!-- ── Funding ──────────────────────────────────────────── -->
 <section id="funding" class="bg-light py-5">
   <div class="container text-center">
-    <h2 class="h4 mb-3">Funding & Programs</h2>
+    <h2 class="h4 mb-3">Funding &amp; Programs</h2>
     <ul class="list-group list-group-flush d-inline-block w-auto text-start shadow-sm">
       <li class="list-group-item bg-transparent border-0">📑 Google for Startups Cloud — Application Submitted</li>
       <li class="list-group-item bg-transparent border-0">🚀 AWS Activate Credits — Pending Submission</li>
@@ -62,8 +66,8 @@
   <h2 class="h4 mb-4 text-center">Roadmap</h2>
   <ul class="timeline list-unstyled small">
     <li><strong>Q2 2025</strong> – YouTube MVP <span class="text-success">✓</span></li>
-    <li><strong>Q3 2025</strong> – Instagram & X integration</li>
-    <li><strong>Q4 2025</strong> – “State of Mind” AI & Affiliate Sentiment API</li>
+    <li><strong>Q3 2025</strong> – Instagram &amp; X integration</li>
+    <li><strong>Q4 2025</strong> – “State of Mind” AI &amp; Affiliate Sentiment API</li>
   </ul>
 </section>
 
@@ -74,8 +78,10 @@
     <div class="row justify-content-center g-4">
       <div class="col-sm-4 col-md-3">
         <img src="{{ url_for('static', filename='img/team-ayman.jpg') }}" class="rounded-circle img-fluid mb-3" width="120" height="120" alt="Ayman Sabek portrait smiling, neutral background." loading="lazy" decoding="async">
-        <h3 class="h6 mb-0">Ayman Sabek</h3>
-        <p class="text-muted small">Founder & Data Analyst</p>
+        <h3 class="h6 mb-0">
+          <a href="https://www.linkedin.com/in/aymansabek/" target="_blank" rel="noopener" class="link-dark text-decoration-none" aria-label="Ayman Sabek on LinkedIn">Ayman Sabek</a>
+        </h3>
+        <p class="text-muted small">Founder &amp; Data Analyst</p>
       </div>
     </div>
   </div>

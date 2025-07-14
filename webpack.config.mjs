@@ -37,7 +37,7 @@ export default {
 
   entry: {
     main: SRC_JS,          // JS bundle (Bootstrap JS, interactivity)
-    landing: SRC_SCSS,     // landing-page CSS only
+    landing: SRC_SCSS,     // landing‑page CSS only
     app: SRC_SCSS_APP,     // dashboard / legacy CSS (optional)
   },
 
@@ -156,3 +156,5 @@ export default {
     },
   },
 };
+// -----------------------------------------------------------------------------
+// End of Webpack config -------------------------------------------------------
