@@ -47,8 +47,6 @@ jobs:
           static/dist/**
         commit_user_name: github-actions
         commit_user_email: actions@github.com
-        skip_fetch: true        # faster
-        # Avoid endless loop by skipping if nothing changed
-        skip_clean: true
+        skip_fetch: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
