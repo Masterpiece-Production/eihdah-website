@@ -16,8 +16,8 @@ body.page-landing {
   min-height: 90vh;
   @include mix.fluid-type(utils.$h1-min, utils.$h1-max);
   background:
-    radial-gradient(ellipse at top, rgba(vars.$primary, 0.12), transparent),
-    radial-gradient(ellipse at bottom, rgba(vars.$secondary, 0.12), transparent);
+    radial-gradient(ellipse at top, rgba(vars.$primary, .30), transparent),
+    radial-gradient(ellipse at bottom, rgba(vars.$secondary, .30), transparent);
   color: vars.$white;
 }
 

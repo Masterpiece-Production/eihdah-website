@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,23 @@
   <!-- Favicon -->
   <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
 
-  <!-- Styles -->
+<!-- Security & SEO -->
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' https: data:; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
+
+<!-- Organization schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EihDah",
+  "url": "https://eihdah.com",
+  "logo": "https://eihdah.com/static/img/logo.svg"
+}
+</script>
+<!-- End of security & SEO -->
+
+<!-- Styles -->
   <link rel="stylesheet" href="/static/dist/landing.css">
 </head>
 <body class="page-landing">
@@ -69,47 +86,76 @@
     
 <!-- ── Hero ─────────────────────────────────────────────── -->
 <section id="hero"
-         class="vh-100 d-flex flex-column justify-content-center align-items-center text-center text-white"
-         style="background:
-           radial-gradient(ellipse at top, rgba(79,70,229,.30), transparent),
-           radial-gradient(ellipse at bottom, rgba(139,92,246,.30), transparent);">
+         class="hero-bg vh-100 d-flex flex-column justify-content-center align-items-center text-center text-white">
   <div class="container-lg">
-    <img src="/static/img/logo.svg" alt="EihDah logo" class="mb-4" width="160" height="160">
-    <h1 class="display-4 fw-bold mb-3">Decode Public Sentiment with AI‑Powered Insights</h1>
-    <p class="lead mb-4">Turning social conversations into actionable analytics across YouTube, Instagram, X, and more.</p>
+    <img src="/static/img/logo.svg"
+         alt="EihDah logo"
+         width="160" height="160"
+         class="mb-4">
+    <h1 class="display-4 fw-bold mb-3">
+      Decode Public Sentiment with AI-Powered Insights
+    </h1>
+    <p class="lead mb-4">
+      Turning social conversations into actionable analytics across YouTube, Instagram, X and more.
+    </p>
     <a href="#cta" class="btn btn-primary btn-lg">Join the Waitlist</a>
   </div>
 </section>
 
 <!-- ── Features ─────────────────────────────────────────── -->
 <section id="features" class="bg-light py-5">
-  <div class="container text-center">
-  <h2 "mb-4 text-center">Features</h2>
-  <div class="row g-4 text-center text-md-start">
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100 border-0">
-        <img src="/static/img/feature-sentiment.png" class="card-img-top img-fluid" alt="Sentiment breakdown screenshot" loading="lazy" decoding="async">
-        <div class="card-body">
-          <h3 class="h5">Deep Sentiment Breakdown</h3>
-          <p class="card-text small">Google Cloud NLP decodes nuance, sarcasm, and emotion in 25+ languages.</p>
+  <div class="container">
+    <h2 class="h2 mb-4 text-center">Features</h2>
+
+    <div class="row g-4">
+      <!-- 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <picture>
+            <source srcset="/static/img/feature-sentiment.webp" type="image/webp">
+            <img  src="/static/img/feature-sentiment.png"
+                  alt="Dashboard sentiment breakdown"
+                  width="400" height="230"
+                  class="card-img-top img-fluid" loading="lazy" decoding="async">
+          </picture>
+          <div class="card-body">
+            <h3 class="h5">Deep Sentiment Breakdown</h3>
+            <p class="small mb-0">Google Cloud NLP decodes nuance, sarcasm and emotion in 25+ languages.</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100 border-0">
-        <img src="/static/img/feature-wordcloud.png" class="card-img-top img-fluid" alt="Keyword word‑cloud screenshot" loading="lazy" decoding="async">
-        <div class="card-body">
-          <h3 class="h5">Keyword & Theme Clouds</h3>
-          <p class="card-text small">Visualise hot topics instantly to guide content & messaging.</p>
+
+      <!-- 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <picture>
+            <source srcset="/static/img/feature-wordcloud.webp" type="image/webp">
+            <img  src="/static/img/feature-wordcloud.png"
+                  alt="Keyword cloud visual"
+                  width="400" height="230"
+                  class="card-img-top img-fluid" loading="lazy" decoding="async">
+          </picture>
+          <div class="card-body">
+            <h3 class="h5">Keyword & Theme Clouds</h3>
+            <p class="small mb-0">Visualise hot topics instantly to guide content and messaging.</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100 border-0">
-        <img src="/static/img/feature-topcommenters.png" class="card-img-top img-fluid" alt="Top commenters screenshot" loading="lazy" decoding="async">
-        <div class="card-body">
-          <h3 class="h5">Influencer Insights</h3>
-          <p class="card-text small">Identify voices that drive conversation and brand perception.</p>
+
+      <!-- 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <picture>
+            <source srcset="/static/img/feature-topcommenters.webp" type="image/webp">
+            <img  src="/static/img/feature-topcommenters.png"
+                  alt="Top commenters table"
+                  width="400" height="230"
+                  class="card-img-top img-fluid" loading="lazy" decoding="async">
+          </picture>
+          <div class="card-body">
+            <h3 class="h5">Influencer Insights</h3>
+            <p class="small mb-0">Identify voices that shape conversation and brand perception.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -119,10 +165,10 @@
 <!-- ── Funding ──────────────────────────────────────────── -->
 <section id="funding" class="bg-light py-5">
   <div class="container text-center">
-    <h2 class="h4 mb-3">Funding &amp; Programs</h2>
+    <h2 class="h2 mb-3">Funding & Programs</h2>
     <ul class="list-group list-group-flush d-inline-block w-auto text-start shadow-sm">
-      <li class="list-group-item bg-transparent border-0">📑 Google for Startups Cloud — Application Submitted</li>
-      <li class="list-group-item bg-transparent border-0">🚀 AWS Activate Credits — Pending Submission</li>
+      <li class="list-group-item bg-transparent border-0">📑 Google for Startups Cloud — Application submitted</li>
+      <li class="list-group-item bg-transparent border-0">🚀 AWS Activate Credits — Pending submission</li>
     </ul>
   </div>
 </section>
@@ -132,8 +178,8 @@
   <h2 class="h2 mb-4 text-center">Roadmap</h2>
   <ul class="timeline list-unstyled small">
     <li><strong>Q2 2025</strong> – YouTube MVP <span class="text-success">✓</span></li>
-    <li><strong>Q3 2025</strong> – Instagram &amp; X integration</li>
-    <li><strong>Q4 2025</strong> – “State of Mind” AI &amp; Affiliate Sentiment API</li>
+    <li><strong>Q3 2025</strong> – Instagram & X integration</li>
+    <li><strong>Q4 2025</strong> – “State of Mind” AI & Affiliate Sentiment API</li>
   </ul>
 </section>
 
@@ -143,11 +189,23 @@
     <h2 class="h2 mb-4">Our Team</h2>
     <div class="row justify-content-center g-4">
       <div class="col-sm-4 col-md-3">
-        <img src="/static/img/team-ayman.jpg" class="rounded-circle img-fluid mb-3" width="120" height="120" alt="Ayman Sabek portrait smiling, neutral background." loading="lazy" decoding="async">
+        <picture>
+          <source srcset="/static/img/team-ayman.webp" type="image/webp">
+          <img  src="/static/img/team-ayman.jpg"
+                alt="Ayman Sabek"
+                width="120" height="120"
+                class="rounded-circle img-fluid mb-3"
+                loading="lazy" decoding="async">
+        </picture>
         <h3 class="h6 mb-0">
-          <a href="https://www.linkedin.com/in/aymansabek/" target="_blank" rel="noopener" class="link-dark text-decoration-none" aria-label="Ayman Sabek on LinkedIn">Ayman Sabek</a>
+          <a href="https://www.linkedin.com/in/aymansabek/"
+             class="link-dark text-decoration-none"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Ayman Sabek on LinkedIn">
+            Ayman Sabek
+          </a>
         </h3>
-        <p class="text-muted small">Founder &amp; Data Analyst</p>
+        <p class="text-muted small">Founder & Data Analyst</p>
       </div>
     </div>
   </div>
@@ -156,11 +214,14 @@
 <!-- ── CTA ──────────────────────────────────────────────── -->
 <section id="cta" class="py-5 text-center">
   <h2 class="h2 mb-3">Be first to try EihDah</h2>
-  <form action="https://formspree.io/f/mwpqezga" method="POST" class="row g-2 justify-content-center">
+  <form action="https://formspree.io/f/mwpqezga" method="POST"
+        class="row g-2 justify-content-center">
     <div class="col-auto">
-      <label class="visually-hidden" for="cta-email">Email</label>
-      <input id="cta-email" type="email" name="email" class="form-control" placeholder="Your email" autocomplete="email" required>
-      <input type="text" name="_gotcha" style="display:none">
+      <label for="cta-email" class="visually-hidden">Email</label>
+      <input id="cta-email" type="email" name="email"
+             class="form-control" placeholder="Your email"
+             autocomplete="email" required>
+      <input type="text" name="_gotcha" hidden>
       <input type="hidden" name="_redirect" value="https://eihdah.com/thanks.html">
     </div>
     <div class="col-auto">

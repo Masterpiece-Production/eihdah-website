@@ -27,7 +27,23 @@
   <!-- Favicon -->
   <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
 
-  <!-- Styles -->
+<!-- Security & SEO -->
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' https: data:; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
+
+<!-- Organization schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EihDah",
+  "url": "https://eihdah.com",
+  "logo": "https://eihdah.com/static/img/logo.svg"
+}
+</script>
+<!-- End of security & SEO -->
+
+<!-- Styles -->
   <link rel="stylesheet" href="/static/dist/landing.css">
 </head>
 <body class="page-landing">
