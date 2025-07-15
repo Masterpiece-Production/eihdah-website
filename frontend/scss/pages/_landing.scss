@@ -12,7 +12,7 @@ body.page-landing {
   scroll-behavior: smooth;
 }
 
-#hero {
+#hero.hero-bg {
   min-height: 90vh;
   @include mix.fluid-type(utils.$h1-min, utils.$h1-max);
   background:
