@@ -11,12 +11,11 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from datetime import datetime, timezone
 
 from app import app  # Flask factory already initialised elsewhere
 
 # -----------------------------------------------------------------------------
-# Configuration ----------------------------------------------------------------
+# Configuration --------------------------------------------------------------
 # -----------------------------------------------------------------------------
 BUILD_DIR = Path.cwd()            # project root – html files at repo root
 STATIC_DIR = Path("static")      # /static exists for images & dist bundles
@@ -36,7 +35,7 @@ for k, v in list(PAGES.items()):
         PAGES[k] = (v, k != "thanks.html")
 
 # -----------------------------------------------------------------------------
-# HTML render pass --------------------------------------------------------------
+# HTML render pass ------------------------------------------------------------
 # -----------------------------------------------------------------------------
 print("▸ Rendering static HTML …")
 urls_for_sitemap: list[str] = []
@@ -57,7 +56,7 @@ with a.app_context():
         print(f" ✔  {outfile} → {path}")
 
 # -----------------------------------------------------------------------------
-# sitemap.xml & robots.txt ------------------------------------------------------
+# sitemap.xml & robots.txt ----------------------------------------------------
 # -----------------------------------------------------------------------------
 print("▸ Writing sitemap.xml & robots.txt …")
 STATIC_DIR.mkdir(exist_ok=True)
@@ -71,7 +70,8 @@ for url in urls_for_sitemap:
     sitemap_xml.append(f"  <url><loc>{url}</loc></url>")
 
 sitemap_xml.append("</urlset>\n")
-(STATIC_DIR / "sitemap.xml").write_text("\n".join(sitemap_xml), encoding="utf-8")
+(STATIC_DIR / "sitemap.xml").write_text(
+    "\n".join(sitemap_xml), encoding="utf-8")
 
 # robots
 robots_txt = (
