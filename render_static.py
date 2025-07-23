@@ -11,8 +11,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-
-from app import app  # Flask factory already initialised elsewhere
+from app import app
 
 # -----------------------------------------------------------------------------
 # Configuration --------------------------------------------------------------

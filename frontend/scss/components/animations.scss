@@ -1,0 +1,102 @@
+// Animation component styles
+// These will be used with AOS.js
+
+// Custom animation durations and variables
+:root {
+  --aos-duration: 800ms;
+  --aos-delay: 100ms;
+  --aos-easing: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --aos-distance: 20px;
+  --aos-opacity-start: 0;
+  --aos-opacity-end: 1;
+}
+
+// Custom animation classes
+.fade-up {
+  opacity: var(--aos-opacity-start);
+  transform: translateY(var(--aos-distance));
+  transition: opacity var(--aos-duration) var(--aos-easing), 
+              transform var(--aos-duration) var(--aos-easing);
+  
+  &.aos-animate {
+    opacity: var(--aos-opacity-end);
+    transform: translateY(0);
+  }
+}
+
+// Additional custom animations
+.fade-in {
+  opacity: var(--aos-opacity-start);
+  transition: opacity var(--aos-duration) var(--aos-easing);
+  
+  &.aos-animate {
+    opacity: var(--aos-opacity-end);
+  }
+}
+
+.fade-left {
+  opacity: var(--aos-opacity-start);
+  transform: translateX(calc(var(--aos-distance) * -1));
+  transition: opacity var(--aos-duration) var(--aos-easing), 
+              transform var(--aos-duration) var(--aos-easing);
+  
+  &.aos-animate {
+    opacity: var(--aos-opacity-end);
+    transform: translateX(0);
+  }
+}
+
+.fade-right {
+  opacity: var(--aos-opacity-start);
+  transform: translateX(var(--aos-distance));
+  transition: opacity var(--aos-duration) var(--aos-easing), 
+              transform var(--aos-duration) var(--aos-easing);
+  
+  &.aos-animate {
+    opacity: var(--aos-opacity-end);
+    transform: translateX(0);
+  }
+}
+
+.zoom-in {
+  opacity: var(--aos-opacity-start);
+  transform: scale(0.95);
+  transition: opacity var(--aos-duration) var(--aos-easing), 
+              transform var(--aos-duration) var(--aos-easing);
+  
+  &.aos-animate {
+    opacity: var(--aos-opacity-end);
+    transform: scale(1);
+  }
+}
+
+// Animation sequence utility classes
+@for $i from 1 through 10 {
+  [data-aos-delay="#{$i * 100}"] {
+    transition-delay: #{$i * 100}ms;
+  }
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --aos-duration: 0.001ms;
+    --aos-delay: 0.001ms;
+  }
+  
+  [data-aos] {
+    transition-duration: 0.001ms !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .fade-up,
+  .fade-in,
+  .fade-left,
+  .fade-right,
+  .zoom-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

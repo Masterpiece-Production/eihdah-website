@@ -1,0 +1,40 @@
+// frontend/scss/pages/_thanks.scss
+// ------------------------------------------------------------
+// Styles for the thanks page
+// ------------------------------------------------------------
+
+@use '../variables' as vars;
+
+.page-thanks {
+  .thanks-container {
+    padding: 2rem 0;
+  }
+  
+  .card {
+    border-radius: vars.$border-radius;
+    background-color: rgba(vars.$light, 0.5);
+  }
+  
+  .share-section {
+    margin-top: 2rem;
+    
+    h3 {
+      color: vars.$gray-600;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+  
+  ol {
+    padding-left: 1.5rem;
+  }
+}

@@ -1,0 +1,47 @@
+// Button component styles
+.btn {
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  
+  @media (max-width: 575.98px) {
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 339.98px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3949ab 0%, #1a237e 100%);
+  border: none;
+  
+  &:hover {
+    background: linear-gradient(135deg, #3949ab 20%, #1a237e 120%);
+  }
+}
+
+.btn-outline-light {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

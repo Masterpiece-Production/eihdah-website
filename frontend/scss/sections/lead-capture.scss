@@ -1,0 +1,29 @@
+// Lead Capture section styles
+.lead-capture {
+  padding: 5rem 0;
+  background-color: var(--bs-light);
+  
+  &__title {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  &__form {
+    max-width: 500px;
+    margin: 0 auto;
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .btn-submit {
+      width: 100%;
+    }
+    
+    .form-text {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+  }
+}

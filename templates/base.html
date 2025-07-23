@@ -24,8 +24,19 @@
   <meta name="twitter:description" content="AI‑powered public sentiment insights from real conversations.">
   <meta name="twitter:image" content="/static/img/og-cover.png">
 
-  <!-- Favicon -->
-  <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+  <!-- Favicons and Browser Assets -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/img/icons/favicon-16x16.png">
+  <link rel="manifest" href="/static/img/icons/site.webmanifest">
+  <link rel="mask-icon" href="/static/img/icons/safari-pinned-tab.svg" color="#3949ab">
+  <link rel="shortcut icon" href="/static/img/icons/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="EihDah">
+  <meta name="application-name" content="EihDah">
+  <meta name="msapplication-TileColor" content="#3949ab">
+  <meta name="msapplication-TileImage" content="/static/img/icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/static/img/icons/browserconfig.xml">
+  <meta name="theme-color" content="#3949ab">
 
 <!-- Security & SEO -->
 <meta http-equiv="Content-Security-Policy"
@@ -59,6 +70,11 @@
 
   <!-- Scripts -->
   <script defer src="/static/dist/main.js"></script>
+  
+  {% if debug %}
+  <!-- Mobile Layout Testing Script (development only) -->
+  <script defer src="/static/dist/test_mobile_layout.js"></script>
+  {% endif %}
 </body>
 </html>
 <!-- End Of File -->

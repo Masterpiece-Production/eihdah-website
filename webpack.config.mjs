@@ -18,6 +18,7 @@ const __dirname  = dirname(__filename);
 const SRC_JS    = './frontend/js/main.js';
 const SRC_SCSS  = './frontend/scss/pages/_landing.scss'; // marketing bundle
 const SRC_SCSS_APP = './frontend/scss/main.scss';        // legacy / app styles
+const SRC_TEST_MOBILE = './scripts/test_mobile_layout.js'; // mobile testing script
 const DIST_DIR  = path.resolve(__dirname, 'static/dist');
 
 // -----------------------------------------------------------------------------
@@ -39,6 +40,7 @@ export default {
     main: SRC_JS,          // JS bundle (Bootstrap JS, interactivity)
     landing: SRC_SCSS,     // landing‑page CSS only
     app: SRC_SCSS_APP,     // dashboard / legacy CSS (optional)
+    test_mobile_layout: SRC_TEST_MOBILE, // mobile testing script
   },
 
   output: {

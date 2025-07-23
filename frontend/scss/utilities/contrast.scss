@@ -1,0 +1,107 @@
+// Color contrast utilities
+// ------------------------------------------------------------
+@use "../variables.scss" as vars;
+
+// Function to determine if a color is light or dark
+@function is-light($color) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  
+  // Calculate relative luminance according to WCAG
+  $luminance: (0.2126 * $red + 0.7152 * $green + 0.0722 * $blue) / 255;
+  
+  @return $luminance > 0.5;
+}
+
+// Function to calculate contrast ratio between two colors
+@function contrast-ratio($background, $foreground) {
+  $bg-luminance: luminance($background) + 0.05;
+  $fg-luminance: luminance($foreground) + 0.05;
+  
+  @if $bg-luminance > $fg-luminance {
+    @return $bg-luminance / $fg-luminance;
+  } @else {
+    @return $fg-luminance / $bg-luminance;
+  }
+}
+
+// Function to calculate luminance
+@function luminance($color) {
+  $red: red($color) / 255;
+  $green: green($color) / 255;
+  $blue: blue($color) / 255;
+  
+  $red: if($red <= 0.03928, $red / 12.92, pow(($red + 0.055) / 1.055, 2.4));
+  $green: if($green <= 0.03928, $green / 12.92, pow(($green + 0.055) / 1.055, 2.4));
+  $blue: if($blue <= 0.03928, $blue / 12.92, pow(($blue + 0.055) / 1.055, 2.4));
+  
+  @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
+}
+
+// Power function (for luminance calculation)
+@function pow($base, $exponent) {
+  $result: 1;
+  @for $i from 1 through $exponent {
+    $result: $result * $base;
+  }
+  @return $result;
+}
+
+// Generate contrast-aware text colors for backgrounds
+@each $color-name, $color-value in (
+  'primary': vars.$primary,
+  'primary-dark': vars.$primary-dark,
+  'primary-light': vars.$primary-light,
+  'secondary': vars.$secondary,
+  'secondary-dark': vars.$secondary-dark,
+  'secondary-light': vars.$secondary-light,
+  'accent': vars.$accent,
+  'accent-dark': vars.$accent-dark,
+  'accent-light': vars.$accent-light,
+  'success': vars.$success,
+  'warning': vars.$warning,
+  'danger': vars.$danger,
+  'info': vars.$info,
+  'dark': vars.$dark,
+  'light': vars.$light,
+  'white': vars.$white,
+  'black': vars.$black
+) {
+  .bg-#{$color-name} {
+    background-color: $color-value !important;
+    
+    @if is-light($color-value) {
+      color: vars.$dark !important; // Dark text for light backgrounds
+    } @else {
+      color: vars.$white !important; // Light text for dark backgrounds
+    }
+  }
+}
+
+// WCAG AA contrast classes
+.wcag-aa {
+  // These classes ensure text meets WCAG AA 4.5:1 contrast ratio
+  &-dark {
+    color: vars.$dark !important; // For use on light backgrounds
+  }
+  
+  &-light {
+    color: vars.$white !important; // For use on dark backgrounds
+  }
+}
+
+// Generate contrast-aware border colors
+@each $color-name, $color-value in (
+  'primary': vars.$primary,
+  'secondary': vars.$secondary,
+  'accent': vars.$accent,
+  'success': vars.$success,
+  'warning': vars.$warning,
+  'danger': vars.$danger,
+  'info': vars.$info
+) {
+  .border-#{$color-name} {
+    border-color: $color-value !important;
+  }
+}

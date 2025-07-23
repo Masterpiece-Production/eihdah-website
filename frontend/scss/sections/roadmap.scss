@@ -1,0 +1,199 @@
+// Roadmap section styles
+.roadmap {
+  padding: 3rem 0;
+  
+  &__timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 24px; // Align with milestone markers on mobile
+      width: 2px;
+      background-color: var(--bs-gray-300);
+      
+      @media (min-width: 768px) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  
+  .milestone {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 60px; // Space for the marker on mobile
+    
+    @media (min-width: 768px) {
+      padding-left: 0;
+      
+      &:nth-child(odd) {
+        .milestone__content {
+          margin-left: auto;
+          margin-right: 60px; // Space for connector
+          
+          &::after {
+            left: 100%;
+            border-left-color: #fff;
+            border-right: 0;
+          }
+        }
+        
+        .milestone__marker {
+          right: -36px;
+          left: auto;
+        }
+      }
+      
+      &:nth-child(even) {
+        .milestone__content {
+          margin-right: auto;
+          margin-left: 60px; // Space for connector
+          
+          &::after {
+            right: 100%;
+            border-right-color: #fff;
+            border-left: 0;
+          }
+        }
+        
+        .milestone__marker {
+          left: -36px;
+        }
+      }
+    }
+    
+    &__content {
+      position: relative;
+      padding: 1.5rem;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      
+      @media (min-width: 768px) {
+        width: calc(50% - 30px);
+        
+        &::after {
+          content: '';
+          position: absolute;
+          top: 20px;
+          border: solid transparent;
+          border-width: 10px;
+          pointer-events: none;
+        }
+      }
+    }
+    
+    &__marker {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--bs-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      z-index: 1;
+      
+      &.completed {
+        background-color: var(--bs-success);
+      }
+      
+      .checkmark {
+        font-size: 1.5rem;
+      }
+      
+      .number {
+        font-size: 1.25rem;
+      }
+    }
+    
+    &__title {
+      margin-bottom: 0.25rem;
+    }
+    
+    &__date {
+      color: var(--bs-gray-600);
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    &__description {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+    
+    &--completed {
+      .milestone__title {
+        color: var(--bs-success);
+      }
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 767.98px) {
+    .milestone {
+      &__content {
+        width: 100%;
+      }
+    }
+  }
+  
+  // Extra small devices
+  @media (max-width: 575.98px) {
+    padding: 2rem 0;
+    
+    .milestone {
+      margin-bottom: 2rem;
+      
+      &__content {
+        padding: 1rem;
+      }
+      
+      &__description {
+        font-size: 0.85rem;
+      }
+    }
+  }
+  
+  // Ultra small devices (down to 340px)
+  @media (max-width: 359.98px) {
+    .milestone {
+      padding-left: 50px;
+      
+      &__marker {
+        width: 40px;
+        height: 40px;
+        
+        .checkmark, .number {
+          font-size: 1rem;
+        }
+      }
+      
+      &__content {
+        padding: 0.75rem;
+      }
+      
+      &__title {
+        font-size: 1rem;
+      }
+      
+      &__date {
+        font-size: 0.8rem;
+      }
+      
+      &__description {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

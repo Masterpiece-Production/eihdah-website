@@ -1,0 +1,188 @@
+// Utilities for EihDah website
+// ------------------------------------------------------------
+@use "variables.scss" as vars;
+@use "mixins.scss" as mix;
+
+// Import utilities partials
+@import "utilities/spacing";
+@import "utilities/typography";
+@import "utilities/accessibility";
+@import "utilities/contrast";
+@import "utilities/colors";
+@import "utilities/mobile-optimizations";
+
+// Additional utility classes
+
+// Text gradients
+.text-gradient {
+  background: linear-gradient(135deg, vars.$primary 0%, vars.$secondary 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, vars.$primary 0%, vars.$primary-dark 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(135deg, vars.$secondary 0%, vars.$secondary-dark 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+// Background gradients
+.bg-gradient-primary {
+  @include mix.gradient-bg(vars.$primary, vars.$primary-dark);
+}
+
+.bg-gradient-secondary {
+  @include mix.gradient-bg(vars.$secondary, vars.$secondary-dark);
+}
+
+.bg-gradient-accent {
+  @include mix.gradient-bg(vars.$accent, vars.$accent-dark);
+}
+
+.bg-gradient-light {
+  @include mix.gradient-bg(vars.$light, vars.$gray-200);
+}
+
+.bg-gradient-dark {
+  @include mix.gradient-bg(vars.$gray-800, vars.$dark);
+}
+
+.shadow-sm {
+  @include mix.box-shadow(vars.$box-shadow-sm);
+}
+
+.shadow {
+  @include mix.box-shadow(vars.$box-shadow);
+}
+
+.shadow-lg {
+  @include mix.box-shadow(vars.$box-shadow-lg);
+}
+
+.rounded-xl {
+  border-radius: vars.$border-radius-lg * 1.5;
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.w-auto {
+  width: auto !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.mw-100 {
+  max-width: 100% !important;
+}
+
+.mh-100 {
+  max-height: 100% !important;
+}
+
+// Semantic spacing utilities
+.gap-xs {
+  gap: map-get(vars.$spacing, 'xs') !important;
+}
+
+.gap-sm {
+  gap: map-get(vars.$spacing, 'sm') !important;
+}
+
+.gap-md {
+  gap: map-get(vars.$spacing, 'md') !important;
+}
+
+.gap-lg {
+  gap: map-get(vars.$spacing, 'lg') !important;
+}
+
+.gap-xl {
+  gap: map-get(vars.$spacing, 'xl') !important;
+}
+
+// Section spacing utilities
+.section-spacing-sm {
+  padding-top: vars.$section-spacing-sm;
+  padding-bottom: vars.$section-spacing-sm;
+}
+
+.section-spacing-md {
+  padding-top: vars.$section-spacing-md;
+  padding-bottom: vars.$section-spacing-md;
+}
+
+.section-spacing-lg {
+  padding-top: vars.$section-spacing-lg;
+  padding-bottom: vars.$section-spacing-lg;
+}
+
+// Component spacing utilities
+.component-spacing-xs {
+  margin-bottom: vars.$component-spacing-xs;
+}
+
+.component-spacing-sm {
+  margin-bottom: vars.$component-spacing-sm;
+}
+
+.component-spacing-md {
+  margin-bottom: vars.$component-spacing-md;
+}
+
+.component-spacing-lg {
+  margin-bottom: vars.$component-spacing-lg;
+}
+
+// Export typography variables
+$h1-min: vars.$h1-min;
+$h1-max: vars.$h1-max;
+$h2-min: vars.$h2-min;
+$h2-max: vars.$h2-max;
+$h3-min: vars.$h3-min;
+$h3-max: vars.$h3-max;
+$h4-min: vars.$h4-min;
+$h4-max: vars.$h4-max;
+$h5-min: vars.$h5-min;
+$h5-max: vars.$h5-max;
+$h6-min: vars.$h6-min;
+$h6-max: vars.$h6-max;

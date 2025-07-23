@@ -1,0 +1,119 @@
+// Accessibility utilities
+// ------------------------------------------------------------
+@use "../variables.scss" as vars;
+
+// Screen reader utilities
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+// Enhanced focus styles - WCAG AA compliant
+.focus-ring {
+  outline: 0;
+  box-shadow: 0 0 0 vars.$focus-ring-width vars.$focus-ring-color;
+  transition: box-shadow vars.$animation-duration-fast vars.$animation-easing-standard;
+}
+
+// Focus visible (only shows focus ring when using keyboard)
+.focus-visible-only:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
+}
+
+.focus-visible-only:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 vars.$focus-ring-width vars.$focus-ring-color;
+}
+
+// Skip links - Enhanced for better accessibility
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: vars.$dark;
+  color: vars.$white;
+  padding: 8px 16px;
+  z-index: map-get(vars.$z-index-layers, 'toast');
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  transition: top vars.$animation-duration-fast vars.$animation-easing-standard;
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+// Reduced motion - Respects user preferences
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Contrast classes - For dynamic content that needs to meet WCAG AA
+.text-contrast-dark {
+  color: vars.$dark !important; // For light backgrounds
+}
+
+.text-contrast-light {
+  color: vars.$white !important; // For dark backgrounds
+}
+
+// High contrast mode support
+@media (forced-colors: active) {
+  .high-contrast-border {
+    border: 1px solid currentColor;
+  }
+}
+
+// ARIA attributes styling
+[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+// Keyboard focus indicator
+.keyboard-focus-only:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+// WCAG AA contrast helpers
+.wcag-aa-text {
+  // Ensures text meets WCAG AA 4.5:1 contrast ratio
+  color: vars.$gray-900;
+  
+  .bg-dark & {
+    color: vars.$gray-100;
+  }
+}
+
+.wcag-aa-large-text {
+  // For large text (18pt+ or 14pt+ bold) - 3:1 contrast ratio
+  color: vars.$gray-800;
+  
+  .bg-dark & {
+    color: vars.$gray-200;
+  }
+}

@@ -1,0 +1,118 @@
+// Typography utilities
+// ------------------------------------------------------------
+@use "../variables.scss" as vars;
+@use "../mixins.scss" as mix;
+
+// Font weights
+.fw-normal {
+  font-weight: vars.$font-weight-normal !important;
+}
+
+.fw-medium {
+  font-weight: vars.$font-weight-medium !important;
+}
+
+.fw-semibold {
+  font-weight: vars.$font-weight-semibold !important;
+}
+
+.fw-bold {
+  font-weight: vars.$font-weight-bold !important;
+}
+
+// Text utilities
+.text-truncate {
+  @include mix.text-truncate;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+// Font sizes
+.fs-1 {
+  font-size: 2.5rem !important;
+}
+
+.fs-2 {
+  font-size: 2rem !important;
+}
+
+.fs-3 {
+  font-size: 1.75rem !important;
+}
+
+.fs-4 {
+  font-size: 1.5rem !important;
+}
+
+.fs-5 {
+  font-size: 1.25rem !important;
+}
+
+.fs-6 {
+  font-size: 1rem !important;
+}
+
+.fs-sm {
+  font-size: 0.875rem !important;
+}
+
+.fs-xs {
+  font-size: 0.75rem !important;
+}
+
+// Line heights
+.lh-1 {
+  line-height: 1 !important;
+}
+
+.lh-sm {
+  line-height: 1.25 !important;
+}
+
+.lh-base {
+  line-height: 1.5 !important;
+}
+
+.lh-lg {
+  line-height: 2 !important;
+}
+
+// Letter spacing
+.ls-tight {
+  letter-spacing: -0.025em !important;
+}
+
+.ls-normal {
+  letter-spacing: 0 !important;
+}
+
+.ls-wide {
+  letter-spacing: 0.025em !important;
+}
+
+.ls-wider {
+  letter-spacing: 0.05em !important;
+}
+
+// Responsive text alignment
+$grid-breakpoints: vars.$grid-breakpoints !default;
+@each $breakpoint in (sm, md, lg, xl) {
+  @media (min-width: map-get(vars.$grid-breakpoints, $breakpoint)) {
+    .text-#{$breakpoint}-start {
+      text-align: left !important;
+    }
+    .text-#{$breakpoint}-center {
+      text-align: center !important;
+    }
+    .text-#{$breakpoint}-end {
+      text-align: right !important;
+    }
+  }
+}

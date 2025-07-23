@@ -1,0 +1,381 @@
+// Mobile optimizations for EihDah website
+// ------------------------------------------------------------
+// This file contains specific optimizations for mobile layouts
+// with special attention to ultra-small devices (down to 340px)
+
+@use "../variables.scss" as vars;
+@use "../mixins.scss" as mix;
+
+// General mobile optimizations
+@include mix.sm-down {
+  // Reduce section padding on small screens
+  section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  // Adjust container padding
+  .container, .container-fluid {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  // Reduce margins between components
+  .mb-4, .my-4 {
+    margin-bottom: 1.25rem !important;
+  }
+  
+  .mb-5, .my-5 {
+    margin-bottom: 2rem !important;
+  }
+  
+  // Adjust heading sizes
+  h1, .h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2, .h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  // Reduce button padding
+  .btn-lg {
+    padding: 0.5rem 1.25rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+// Ultra-small device optimizations (340px and below)
+@include mix.xs-only {
+  // Further reduce section padding
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  // Tighter container padding
+  .container, .container-fluid {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  // Smaller headings
+  h1, .h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2, .h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  h3, .h3 {
+    font-size: 1.125rem !important;
+  }
+  
+  // Smaller buttons
+  .btn {
+    padding: 0.375rem 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .btn-lg {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9375rem !important;
+  }
+  
+  // Reduce form control height
+  .form-control {
+    height: calc(1.5em + 0.75rem + 2px) !important;
+    font-size: 0.875rem !important;
+  }
+  
+  // Adjust lead text
+  .lead {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+// Section-specific mobile optimizations
+
+// Hero section
+.hero {
+  @include mix.sm-down {
+    padding: 4rem 0 !important;
+    min-height: auto !important;
+    
+    &__headline {
+      font-size: 1.75rem !important;
+    }
+    
+    &__subheadline {
+      font-size: 1rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+    
+    &__cta {
+      margin-top: 1.5rem !important;
+      
+      .btn {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 0.75rem !important;
+      }
+    }
+  }
+  
+  @include mix.xs-only {
+    padding: 3rem 0 !important;
+    
+    &__headline {
+      font-size: 1.5rem !important;
+    }
+    
+    &__subheadline {
+      font-size: 0.9375rem !important;
+    }
+  }
+}
+
+// How It Works section
+.how-it-works {
+  @include mix.sm-down {
+    &__title {
+      margin-bottom: 2rem !important;
+    }
+    
+    &__diagram {
+      margin: 1.5rem 0 !important;
+      
+      .step {
+        padding: 1rem 0.5rem !important;
+        
+        &__title {
+          font-size: 1rem !important;
+          margin-bottom: 0.5rem !important;
+        }
+        
+        &__description {
+          font-size: 0.875rem !important;
+        }
+      }
+    }
+    
+    &__explanation {
+      .lead {
+        font-size: 1rem !important;
+      }
+    }
+  }
+}
+
+// Use Cases & FAQ section
+.use-cases {
+  @include mix.sm-down {
+    .use-case-accordion {
+      .accordion-button {
+        padding: 1rem !important;
+        font-size: 0.9375rem !important;
+      }
+      
+      .accordion-body {
+        padding: 1rem !important;
+        font-size: 0.875rem !important;
+        
+        ul {
+          padding-left: 1.25rem !important;
+        }
+      }
+    }
+  }
+  
+  @include mix.xs-only {
+    .use-case-accordion {
+      .accordion-button {
+        padding: 0.75rem !important;
+      }
+      
+      .accordion-body {
+        padding: 0.75rem !important;
+      }
+    }
+  }
+}
+
+// Features section
+#features {
+  @include mix.sm-down {
+    .card {
+      margin-bottom: 1rem !important;
+      
+      .card-body {
+        padding: 1rem !important;
+      }
+      
+      .h5 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      .small {
+        font-size: 0.8125rem !important;
+      }
+    }
+  }
+}
+
+// Video section
+.video-section {
+  @include mix.sm-down {
+    &__description {
+      margin-top: 1.5rem !important;
+      font-size: 0.9375rem !important;
+    }
+  }
+}
+
+// Roadmap section
+.roadmap {
+  @include mix.sm-down {
+    .milestone {
+      padding-left: 50px !important;
+      margin-bottom: 2rem !important;
+      
+      &__marker {
+        width: 40px !important;
+        height: 40px !important;
+        
+        .checkmark, .number {
+          font-size: 1rem !important;
+        }
+      }
+      
+      &__content {
+        padding: 1rem !important;
+      }
+      
+      &__title {
+        font-size: 1rem !important;
+        margin-bottom: 0.25rem !important;
+      }
+      
+      &__date {
+        font-size: 0.8125rem !important;
+      }
+      
+      &__description {
+        font-size: 0.875rem !important;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+  
+  @include mix.xs-only {
+    .milestone {
+      padding-left: 40px !important;
+      
+      &__marker {
+        width: 32px !important;
+        height: 32px !important;
+        
+        .checkmark, .number {
+          font-size: 0.875rem !important;
+        }
+      }
+      
+      &__content {
+        padding: 0.75rem !important;
+      }
+    }
+  }
+}
+
+// Team section
+#team {
+  @include mix.sm-down {
+    .h6 {
+      font-size: 0.9375rem !important;
+    }
+    
+    .small {
+      font-size: 0.8125rem !important;
+    }
+  }
+}
+
+// CTA section
+#cta {
+  @include mix.sm-down {
+    .waitlist-form {
+      .form-control-lg {
+        font-size: 1rem !important;
+        padding: 0.5rem 1rem !important;
+      }
+      
+      .btn-lg {
+        font-size: 1rem !important;
+        padding: 0.5rem 1rem !important;
+      }
+      
+      .small {
+        font-size: 0.75rem !important;
+      }
+    }
+  }
+  
+  @include mix.xs-only {
+    .col-md-5 {
+      margin-bottom: 0.5rem !important;
+    }
+  }
+}
+
+// Fix for layout shift issues
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Fix for video container aspect ratio
+.video-embed-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+  overflow: hidden;
+  
+  iframe, img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+// Fix for button stacking on small screens
+@include mix.xs-only {
+  .d-xs-block {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  .mt-xs-2 {
+    margin-top: 0.5rem !important;
+  }
+}
+
+// Fix for accordion content on small screens
+.accordion-body {
+  @include mix.xs-only {
+    ul, ol {
+      padding-left: 1rem !important;
+    }
+    
+    p {
+      margin-bottom: 0.75rem !important;
+    }
+  }
+}

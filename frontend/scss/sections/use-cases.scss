@@ -1,0 +1,28 @@
+// Use Cases & FAQ section styles
+
+.use-cases {
+  background-color: #f8f9fa;
+  
+  &__title {
+    position: relative;
+    margin-bottom: 2rem;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4rem;
+      height: 0.25rem;
+      background-color: var(--bs-primary);
+      border-radius: 0.125rem;
+    }
+  }
+  
+  .lead {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

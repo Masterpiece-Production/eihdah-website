@@ -1,0 +1,93 @@
+// Color utilities
+// ------------------------------------------------------------
+@use "../variables.scss" as vars;
+
+// Text colors
+.text-primary { color: vars.$primary !important; }
+.text-primary-dark { color: vars.$primary-dark !important; }
+.text-primary-light { color: vars.$primary-light !important; }
+
+.text-secondary { color: vars.$secondary !important; }
+.text-secondary-dark { color: vars.$secondary-dark !important; }
+.text-secondary-light { color: vars.$secondary-light !important; }
+
+.text-accent { color: vars.$accent !important; }
+.text-accent-dark { color: vars.$accent-dark !important; }
+.text-accent-light { color: vars.$accent-light !important; }
+
+.text-success { color: vars.$success !important; }
+.text-warning { color: vars.$warning !important; }
+.text-danger { color: vars.$danger !important; }
+.text-info { color: vars.$info !important; }
+
+.text-dark { color: vars.$dark !important; }
+.text-light { color: vars.$light !important; }
+.text-white { color: vars.$white !important; }
+.text-black { color: vars.$black !important; }
+
+// Gray scale text colors
+.text-gray-100 { color: vars.$gray-100 !important; }
+.text-gray-200 { color: vars.$gray-200 !important; }
+.text-gray-300 { color: vars.$gray-300 !important; }
+.text-gray-400 { color: vars.$gray-400 !important; }
+.text-gray-500 { color: vars.$gray-500 !important; }
+.text-gray-600 { color: vars.$gray-600 !important; }
+.text-gray-700 { color: vars.$gray-700 !important; }
+.text-gray-800 { color: vars.$gray-800 !important; }
+.text-gray-900 { color: vars.$gray-900 !important; }
+
+// Background colors
+.bg-primary { background-color: vars.$primary !important; }
+.bg-primary-dark { background-color: vars.$primary-dark !important; }
+.bg-primary-light { background-color: vars.$primary-light !important; }
+
+.bg-secondary { background-color: vars.$secondary !important; }
+.bg-secondary-dark { background-color: vars.$secondary-dark !important; }
+.bg-secondary-light { background-color: vars.$secondary-light !important; }
+
+.bg-accent { background-color: vars.$accent !important; }
+.bg-accent-dark { background-color: vars.$accent-dark !important; }
+.bg-accent-light { background-color: vars.$accent-light !important; }
+
+.bg-success { background-color: vars.$success !important; }
+.bg-warning { background-color: vars.$warning !important; }
+.bg-danger { background-color: vars.$danger !important; }
+.bg-info { background-color: vars.$info !important; }
+
+.bg-dark { background-color: vars.$dark !important; }
+.bg-light { background-color: vars.$light !important; }
+.bg-white { background-color: vars.$white !important; }
+.bg-black { background-color: vars.$black !important; }
+
+// Gray scale background colors
+.bg-gray-100 { background-color: vars.$gray-100 !important; }
+.bg-gray-200 { background-color: vars.$gray-200 !important; }
+.bg-gray-300 { background-color: vars.$gray-300 !important; }
+.bg-gray-400 { background-color: vars.$gray-400 !important; }
+.bg-gray-500 { background-color: vars.$gray-500 !important; }
+.bg-gray-600 { background-color: vars.$gray-600 !important; }
+.bg-gray-700 { background-color: vars.$gray-700 !important; }
+.bg-gray-800 { background-color: vars.$gray-800 !important; }
+.bg-gray-900 { background-color: vars.$gray-900 !important; }
+
+// Border colors
+.border-primary { border-color: vars.$primary !important; }
+.border-secondary { border-color: vars.$secondary !important; }
+.border-accent { border-color: vars.$accent !important; }
+.border-success { border-color: vars.$success !important; }
+.border-warning { border-color: vars.$warning !important; }
+.border-danger { border-color: vars.$danger !important; }
+.border-info { border-color: vars.$info !important; }
+.border-dark { border-color: vars.$dark !important; }
+.border-light { border-color: vars.$light !important; }
+
+// Gray scale border colors
+.border-gray-100 { border-color: vars.$gray-100 !important; }
+.border-gray-200 { border-color: vars.$gray-200 !important; }
+.border-gray-300 { border-color: vars.$gray-300 !important; }
+.border-gray-400 { border-color: vars.$gray-400 !important; }
+.border-gray-500 { border-color: vars.$gray-500 !important; }
+.border-gray-600 { border-color: vars.$gray-600 !important; }
+.border-gray-700 { border-color: vars.$gray-700 !important; }
+.border-gray-800 { border-color: vars.$gray-800 !important; }
+.border-gray-900 { border-color: vars.$gray-900 !important; }

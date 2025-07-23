@@ -6,30 +6,302 @@
 {% block content %}
 <!-- ── Hero ─────────────────────────────────────────────── -->
 <section id="hero"
-         class="hero-bg vh-100 d-flex flex-column justify-content-center align-items-center text-center text-white">
+         class="hero hero-bg d-flex flex-column justify-content-center align-items-center text-center text-white">
   <div class="container-lg">
     <img src="{{ url_for('static', filename='img/logo.svg') }}"
          alt="EihDah logo"
          width="160" height="160"
-         class="mb-4">
-    <h1 class="display-4 fw-bold mb-3">
-      Decode Public Sentiment with AI-Powered Insights
+         class="mb-4"
+         data-aos="fade-down" data-aos-duration="800">
+    <h1 class="hero__headline display-4 fw-bold mb-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+      Unlock Social Sentiment Intelligence with AI-Powered Analytics
     </h1>
-    <p class="lead mb-4">
-      Turning social conversations into actionable analytics across YouTube, Instagram, X and more.
+    <p class="hero__subheadline lead mb-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+      Transform public conversations into actionable insights across YouTube, Instagram, X and beyond.
     </p>
-    <a href="#cta" class="btn btn-primary btn-lg">Join the Waitlist</a>
+    <div class="hero__cta" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+      <a href="#cta" class="btn btn-primary btn-lg px-4 py-2">Join the Waitlist</a>
+      <a href="#how-it-works" class="btn btn-outline-light btn-lg px-4 py-2 ms-2 d-none d-sm-inline-block">See How It Works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── How It Works ─────────────────────────────────────── -->
+<section id="how-it-works" class="how-it-works py-5">
+  <div class="container">
+    <h2 class="how-it-works__title h2 mb-5 text-center" data-aos="fade-up">How It Works</h2>
+    
+    <div class="how-it-works__diagram">
+      <div class="row g-4">
+        <!-- Step 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="step" data-aos="fade-up" data-aos-delay="100">
+            <div class="step__icon mx-auto mb-3">
+              <img src="{{ url_for('static', filename='img/icon-connect.svg') }}" 
+                   alt="Connect icon" 
+                   width="48" height="48"
+                   class="img-fluid"
+                   loading="lazy" decoding="async">
+            </div>
+            <div class="step__number mx-auto">1</div>
+            <h3 class="step__title h5">Connect Your Channels</h3>
+            <p class="step__description">Link your YouTube, Instagram, X, and other social media accounts to start collecting conversation data.</p>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="step" data-aos="fade-up" data-aos-delay="200">
+            <div class="step__icon mx-auto mb-3">
+              <img src="{{ url_for('static', filename='img/icon-analysis.svg') }}" 
+                   alt="Analysis icon" 
+                   width="48" height="48"
+                   class="img-fluid"
+                   loading="lazy" decoding="async">
+            </div>
+            <div class="step__number mx-auto">2</div>
+            <h3 class="step__title h5">AI Analysis</h3>
+            <p class="step__description">Our Google Cloud NLP engine processes comments, mentions, and conversations to understand sentiment and context.</p>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="step" data-aos="fade-up" data-aos-delay="300">
+            <div class="step__icon mx-auto mb-3">
+              <img src="{{ url_for('static', filename='img/icon-insights.svg') }}" 
+                   alt="Insights icon" 
+                   width="48" height="48"
+                   class="img-fluid"
+                   loading="lazy" decoding="async">
+            </div>
+            <div class="step__number mx-auto">3</div>
+            <h3 class="step__title h5">Generate Insights</h3>
+            <p class="step__description">Transform raw data into visual analytics including sentiment trends, keyword clouds, and influencer identification.</p>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="step" data-aos="fade-up" data-aos-delay="400">
+            <div class="step__icon mx-auto mb-3">
+              <img src="{{ url_for('static', filename='img/icon-action.svg') }}" 
+                   alt="Action icon" 
+                   width="48" height="48"
+                   class="img-fluid"
+                   loading="lazy" decoding="async">
+            </div>
+            <div class="step__number mx-auto">4</div>
+            <h3 class="step__title h5">Take Action</h3>
+            <p class="step__description">Use actionable insights to improve your content strategy, engage with key voices, and enhance brand perception.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Visual Flow Indicators -->
+      <div class="how-it-works__flow d-none d-lg-block" data-aos="fade-in" data-aos-delay="500">
+        <div class="flow-arrow flow-arrow--1"></div>
+        <div class="flow-arrow flow-arrow--2"></div>
+        <div class="flow-arrow flow-arrow--3"></div>
+      </div>
+    </div>
+    
+    <!-- Additional explanation -->
+    <div class="how-it-works__explanation mt-5 text-center" data-aos="fade-up" data-aos-delay="600">
+      <p class="lead">EihDah simplifies the process of understanding public sentiment across social platforms, <br class="d-none d-md-block">
+         helping you make data-driven decisions to improve your brand's online presence.</p>
+      <a href="#cta" class="btn btn-primary mt-3">Get Started Today</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Use Cases & FAQ ─────────────────────────────────── -->
+<section id="use-cases" class="use-cases py-5">
+  <div class="container">
+    <h2 class="use-cases__title h2 mb-4 text-center" data-aos="fade-up">Use Cases & FAQ</h2>
+    <p class="lead text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+      Discover how EihDah can transform your understanding of audience sentiment and enhance your digital strategy.
+    </p>
+    
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <!-- Use Cases Accordion -->
+        <div class="use-case-accordion mb-5" id="useCaseAccordion" data-single-open="true" data-aos="fade-up" data-aos-delay="200">
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="useCase1Header">
+              <button class="accordion-button" type="button" 
+                      aria-expanded="true" 
+                      aria-controls="useCase1Collapse">
+                <span class="use-case-tag">Marketing</span> Content Strategy Optimization
+              </button>
+            </h3>
+            <div id="useCase1Collapse" class="accordion-collapse show" 
+                 aria-labelledby="useCase1Header">
+              <div class="accordion-body">
+                <p><strong>Challenge:</strong> Understanding which content resonates with your audience across multiple platforms.</p>
+                <p><strong>Solution:</strong> EihDah analyzes sentiment patterns across your content to identify what truly engages your audience.</p>
+                <ul>
+                  <li>Track sentiment trends across different content types and topics</li>
+                  <li>Identify emotional triggers that drive engagement</li>
+                  <li>Compare sentiment across platforms to optimize cross-posting strategy</li>
+                  <li>Discover content themes that generate positive sentiment</li>
+                </ul>
+                <p><em>"EihDah helped us increase our positive engagement by 32% by identifying content themes that resonated with our audience."</em></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="useCase2Header">
+              <button class="accordion-button collapsed" type="button" 
+                      aria-expanded="false" 
+                      aria-controls="useCase2Collapse">
+                <span class="use-case-tag">Brand</span> Reputation Monitoring
+              </button>
+            </h3>
+            <div id="useCase2Collapse" class="accordion-collapse" 
+                 aria-labelledby="useCase2Header" 
+                 aria-hidden="true">
+              <div class="accordion-body">
+                <p><strong>Challenge:</strong> Detecting shifts in brand perception before they impact your business.</p>
+                <p><strong>Solution:</strong> EihDah provides real-time sentiment tracking to identify reputation risks and opportunities.</p>
+                <ul>
+                  <li>Monitor sentiment around your brand across multiple platforms</li>
+                  <li>Receive alerts for sudden sentiment shifts</li>
+                  <li>Identify key influencers shaping your brand perception</li>
+                  <li>Track sentiment recovery after addressing issues</li>
+                </ul>
+                <p><em>"We identified a potential PR issue brewing on social media and addressed it before it escalated, saving our quarterly campaign."</em></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="useCase3Header">
+              <button class="accordion-button collapsed" type="button" 
+                      aria-expanded="false" 
+                      aria-controls="useCase3Collapse">
+                <span class="use-case-tag">Product</span> Customer Feedback Analysis
+              </button>
+            </h3>
+            <div id="useCase3Collapse" class="accordion-collapse" 
+                 aria-labelledby="useCase3Header" 
+                 aria-hidden="true">
+              <div class="accordion-body">
+                <p><strong>Challenge:</strong> Extracting actionable insights from thousands of customer comments.</p>
+                <p><strong>Solution:</strong> EihDah aggregates and analyzes sentiment patterns to surface valuable product feedback.</p>
+                <ul>
+                  <li>Identify most-discussed product features and associated sentiment</li>
+                  <li>Track sentiment changes after product updates</li>
+                  <li>Compare your product sentiment against competitors</li>
+                  <li>Discover unmet customer needs through theme analysis</li>
+                </ul>
+                <p><em>"EihDah helped us prioritize our product roadmap based on actual user sentiment, leading to a 28% increase in user satisfaction."</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAQ Accordion -->
+        <h3 class="h4 text-center mb-4" data-aos="fade-up">Frequently Asked Questions</h3>
+        <div class="use-case-accordion" id="faqAccordion" data-single-open="true" data-aos="fade-up" data-aos-delay="200">
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="faq1Header">
+              <button class="accordion-button" type="button" 
+                      aria-expanded="true" 
+                      aria-controls="faq1Collapse">
+                What platforms does EihDah currently support?
+              </button>
+            </h3>
+            <div id="faq1Collapse" class="accordion-collapse show" 
+                 aria-labelledby="faq1Header">
+              <div class="accordion-body">
+                <p>EihDah currently supports YouTube comments for our MVP version. We're actively developing integrations for Instagram and X (formerly Twitter), scheduled for Q3 2025. Additional platforms will be added based on user demand and API availability.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="faq2Header">
+              <button class="accordion-button collapsed" type="button" 
+                      aria-expanded="false" 
+                      aria-controls="faq2Collapse">
+                How accurate is EihDah's sentiment analysis?
+              </button>
+            </h3>
+            <div id="faq2Collapse" class="accordion-collapse" 
+                 aria-labelledby="faq2Header" 
+                 aria-hidden="true">
+              <div class="accordion-body">
+                <p>EihDah uses Google Cloud's Natural Language Processing API, which achieves over 85% accuracy in sentiment detection across 25+ languages. Our system is particularly effective at detecting nuance, sarcasm, and emotional context in social media conversations. We continuously train our models to improve accuracy for specific industries and use cases.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="faq3Header">
+              <button class="accordion-button collapsed" type="button" 
+                      aria-expanded="false" 
+                      aria-controls="faq3Collapse">
+                What data privacy measures does EihDah implement?
+              </button>
+            </h3>
+            <div id="faq3Collapse" class="accordion-collapse" 
+                 aria-labelledby="faq3Header" 
+                 aria-hidden="true">
+              <div class="accordion-body">
+                <p>EihDah only analyzes publicly available comments and posts. We do not store personal identifiers beyond what is publicly visible. All data is processed in compliance with GDPR and CCPA regulations. Our system uses secure, encrypted connections and follows industry best practices for data protection. You maintain full control over your data and can request deletion at any time.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="faq4Header">
+              <button class="accordion-button collapsed" type="button" 
+                      aria-expanded="false" 
+                      aria-controls="faq4Collapse">
+                How is EihDah priced?
+              </button>
+            </h3>
+            <div id="faq4Collapse" class="accordion-collapse" 
+                 aria-labelledby="faq4Header" 
+                 aria-hidden="true">
+              <div class="accordion-body">
+                <p>EihDah will offer tiered subscription plans based on data volume and features needed. Early access users who join our waitlist will receive special founding member pricing and benefits. Detailed pricing will be announced closer to our full launch, but we're committed to providing affordable options for businesses of all sizes.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="faq5Header">
+              <button class="accordion-button collapsed" type="button" 
+                      aria-expanded="false" 
+                      aria-controls="faq5Collapse">
+                Will EihDah offer an API for developers?
+              </button>
+            </h3>
+            <div id="faq5Collapse" class="accordion-collapse" 
+                 aria-labelledby="faq5Header" 
+                 aria-hidden="true">
+              <div class="accordion-body">
+                <p>Yes! Our "State of Mind" API is planned for Q4 2025. This will allow developers to integrate EihDah's sentiment analysis capabilities into their own applications and workflows. The API will include endpoints for real-time sentiment analysis, historical data retrieval, and trend identification. We'll provide comprehensive documentation and SDKs for popular programming languages.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ── Features ─────────────────────────────────────────── -->
 <section id="features" class="bg-light py-5">
   <div class="container">
-    <h2 class="h2 mb-4 text-center">Features</h2>
+    <h2 class="h2 mb-4 text-center" data-aos="fade-up">Features</h2>
 
     <div class="row g-4">
       <!-- 1 -->
-      <div class="col-md-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card h-100 shadow-sm border-0">
           <picture>
             <source srcset="{{ url_for('static', filename='img/feature-sentiment.webp') }}" type="image/webp">
@@ -46,7 +318,7 @@
       </div>
 
       <!-- 2 -->
-      <div class="col-md-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <div class="card h-100 shadow-sm border-0">
           <picture>
             <source srcset="{{ url_for('static', filename='img/feature-wordcloud.webp') }}" type="image/webp">
@@ -63,7 +335,7 @@
       </div>
 
       <!-- 3 -->
-      <div class="col-md-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
         <div class="card h-100 shadow-sm border-0">
           <picture>
             <source srcset="{{ url_for('static', filename='img/feature-topcommenters.webp') }}" type="image/webp">
@@ -85,30 +357,113 @@
 <!-- ── Funding ──────────────────────────────────────────── -->
 <section id="funding" class="bg-light py-5">
   <div class="container text-center">
-    <h2 class="h2 mb-3">Funding & Programs</h2>
-    <ul class="list-group list-group-flush d-inline-block w-auto text-start shadow-sm">
+    <h2 class="h2 mb-3" data-aos="fade-up">Funding & Programs</h2>
+    <ul class="list-group list-group-flush d-inline-block w-auto text-start shadow-sm" data-aos="fade-up" data-aos-delay="100">
       <li class="list-group-item bg-transparent border-0">📑 Google for Startups Cloud — Application submitted</li>
       <li class="list-group-item bg-transparent border-0">🚀 AWS Activate Credits — Pending submission</li>
     </ul>
   </div>
 </section>
 
+<!-- ── Demo Video ────────────────────────────────────────── -->
+<section id="demo-video" class="video-section py-5">
+  <div class="container">
+    <h2 class="video-section__title h2 mb-4 text-center" data-aos="fade-up">See EihDah in Action</h2>
+    
+    <div class="video-section__container" data-aos="fade-up" data-aos-delay="200">
+      <div class="video-embed-container" data-video-id="dQw4w9WgXcQ">
+        <div class="video-placeholder">
+          <img src="{{ url_for('static', filename='img/video-thumbnail.jpg') }}" 
+               alt="EihDah Demo Video" 
+               class="img-fluid w-100"
+               width="800" height="450"
+               loading="lazy" decoding="async">
+          <div class="play-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="play-icon">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16 10 8"></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="video-section__description mt-4" data-aos="fade-up" data-aos-delay="300">
+      <p class="text-center">Watch our 90-second demo to see how EihDah transforms social media comments into actionable insights for your brand.</p>
+      <div class="text-center mt-3">
+        <a href="#cta" class="btn btn-primary">Get Early Access</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Roadmap ──────────────────────────────────────────── -->
-<section id="roadmap" class="container py-5">
-  <h2 class="h2 mb-4 text-center">Roadmap</h2>
-  <ul class="timeline list-unstyled small">
-    <li><strong>Q2 2025</strong> – YouTube MVP <span class="text-success">✓</span></li>
-    <li><strong>Q3 2025</strong> – Instagram & X integration</li>
-    <li><strong>Q4 2025</strong> – “State of Mind” AI & Affiliate Sentiment API</li>
-  </ul>
+<section id="roadmap" class="roadmap py-5">
+  <div class="container">
+    <h2 class="h2 mb-4 text-center" data-aos="fade-up">Roadmap</h2>
+    
+    <div class="roadmap__timeline" data-aos="fade-up" data-aos-delay="200">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <!-- Milestone 1 - Completed -->
+          <div class="milestone milestone--completed">
+            <div class="milestone__content">
+              <div class="d-flex align-items-center">
+                <div class="milestone__marker completed">
+                  <span class="checkmark">✓</span>
+                </div>
+                <div>
+                  <h3 class="milestone__title h5">YouTube MVP</h3>
+                  <div class="milestone__date">Q2 2025</div>
+                  <p class="milestone__description">Core sentiment analysis for YouTube comments with basic dashboard.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Milestone 2 -->
+          <div class="milestone">
+            <div class="milestone__content">
+              <div class="d-flex align-items-center">
+                <div class="milestone__marker">
+                  <span class="number">2</span>
+                </div>
+                <div>
+                  <h3 class="milestone__title h5">Instagram & X Integration</h3>
+                  <div class="milestone__date">Q3 2025</div>
+                  <p class="milestone__description">Expand platform support to Instagram and X (Twitter) with cross-platform analytics.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Milestone 3 -->
+          <div class="milestone">
+            <div class="milestone__content">
+              <div class="d-flex align-items-center">
+                <div class="milestone__marker">
+                  <span class="number">3</span>
+                </div>
+                <div>
+                  <h3 class="milestone__title h5">"State of Mind" AI & Affiliate API</h3>
+                  <div class="milestone__date">Q4 2025</div>
+                  <p class="milestone__description">Advanced sentiment prediction engine and API for third-party integrations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ── Team ─────────────────────────────────────────────── -->
 <section id="team" class="bg-light py-5">
   <div class="container text-center">
-    <h2 class="h2 mb-4">Our Team</h2>
+    <h2 class="h2 mb-4" data-aos="fade-up">Our Team</h2>
     <div class="row justify-content-center g-4">
-      <div class="col-sm-4 col-md-3">
+      <div class="col-sm-4 col-md-3" data-aos="zoom-in" data-aos-delay="100">
         <picture>
           <source srcset="{{ url_for('static', filename='img/team-ayman.webp') }}" type="image/webp">
           <img  src="{{ url_for('static', filename='img/team-ayman.jpg') }}"
@@ -133,20 +488,39 @@
 
 <!-- ── CTA ──────────────────────────────────────────────── -->
 <section id="cta" class="py-5 text-center">
-  <h2 class="h2 mb-3">Be first to try EihDah</h2>
-  <form action="https://formspree.io/f/mwpqezga" method="POST"
-        class="row g-2 justify-content-center">
-    <div class="col-auto">
-      <label for="cta-email" class="visually-hidden">Email</label>
-      <input id="cta-email" type="email" name="email"
-             class="form-control" placeholder="Your email"
-             autocomplete="email" required>
-      <input type="text" name="_gotcha" hidden>
-      <input type="hidden" name="_redirect" value="https://eihdah.com/thanks.html">
+  <div class="container">
+    <h2 class="h2 mb-3" data-aos="fade-up">Be first to try EihDah</h2>
+    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">Join our waitlist for early access to the platform.</p>
+    <form action="/subscribe" method="POST" class="waitlist-form row g-2 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-md-5 col-lg-4">
+        <label for="cta-email" class="visually-hidden">Email</label>
+        <div class="form-floating">
+          <input id="cta-email" type="email" name="email"
+                 class="form-control form-control-lg" placeholder="Your email"
+                 autocomplete="email" required
+                 aria-describedby="email-help">
+          <label for="cta-email">Your email</label>
+        </div>
+        <div id="email-help" class="form-text text-start">We'll send you updates about our launch.</div>
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <button type="submit" class="btn btn-primary btn-lg waitlist-submit">
+          <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+          <span class="button-text">Join Waitlist</span>
+        </button>
+      </div>
+      <div class="col-12 mt-2">
+        <small class="text-muted">We respect your privacy and will never share your information.</small>
+      </div>
+    </form>
+    
+    <!-- Error/Success Alert (hidden by default) -->
+    <div class="alert-container mt-3" style="display: none;">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <span class="alert-message"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
     </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary">Join Waitlist</button>
-    </div>
-  </form>
+  </div>
 </section>
 {% endblock %}

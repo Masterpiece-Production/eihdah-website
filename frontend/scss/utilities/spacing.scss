@@ -1,0 +1,64 @@
+// Spacing utilities
+// ------------------------------------------------------------
+@use "../variables.scss" as vars;
+
+// Define spacers locally if not available from variables
+$spacers: vars.$spacers !default;
+$grid-breakpoints: vars.$grid-breakpoints !default;
+
+// Generate spacing utilities
+@each $breakpoint in (xs, sm, md, lg, xl) {
+  @each $prop, $abbrev in (margin: m, padding: p) {
+    @each $size, $value in $spacers {
+      .#{$abbrev}-#{$size} { #{$prop}: $value !important; }
+      .#{$abbrev}t-#{$size},
+      .#{$abbrev}y-#{$size} {
+        #{$prop}-top: $value !important;
+      }
+      .#{$abbrev}r-#{$size},
+      .#{$abbrev}x-#{$size} {
+        #{$prop}-right: $value !important;
+      }
+      .#{$abbrev}b-#{$size},
+      .#{$abbrev}y-#{$size} {
+        #{$prop}-bottom: $value !important;
+      }
+      .#{$abbrev}l-#{$size},
+      .#{$abbrev}x-#{$size} {
+        #{$prop}-left: $value !important;
+      }
+    }
+  }
+}
+
+// Responsive spacing utilities
+@each $breakpoint in (sm, md, lg, xl) {
+  @media (min-width: map-get(vars.$grid-breakpoints, $breakpoint)) {
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $value in $spacers {
+        .#{$abbrev}-#{$breakpoint}-#{$size} { #{$prop}: $value !important; }
+        .#{$abbrev}t-#{$breakpoint}-#{$size},
+        .#{$abbrev}y-#{$breakpoint}-#{$size} {
+          #{$prop}-top: $value !important;
+        }
+        .#{$abbrev}r-#{$breakpoint}-#{$size},
+        .#{$abbrev}x-#{$breakpoint}-#{$size} {
+          #{$prop}-right: $value !important;
+        }
+        .#{$abbrev}b-#{$breakpoint}-#{$size},
+        .#{$abbrev}y-#{$breakpoint}-#{$size} {
+          #{$prop}-bottom: $value !important;
+        }
+        .#{$abbrev}l-#{$breakpoint}-#{$size},
+        .#{$abbrev}x-#{$breakpoint}-#{$size} {
+          #{$prop}-left: $value !important;
+        }
+      }
+    }
+  }
+}
+
+// Spacing mixin
+@mixin spacing($property, $size) {
+  #{$property}: map-get($spacers, $size) !important;
+}

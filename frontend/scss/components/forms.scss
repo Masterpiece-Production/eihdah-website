@@ -1,0 +1,19 @@
+// Form component styles
+.form-control {
+  // Custom styling for form controls
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+// Waitlist form specific styles
+.waitlist-form {
+  .form-control {
+    // Custom styling for waitlist form inputs
+  }
+  
+  .btn-submit {
+    // Custom styling for submit button
+  }
+}

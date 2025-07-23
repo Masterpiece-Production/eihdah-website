@@ -1,0 +1,100 @@
+// Hero section styles
+.hero {
+  padding: 6rem 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  // Background gradient
+  &-bg {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('../img/hero-pattern.svg');
+      background-size: cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .container-lg {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  
+  &__headline {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @media (min-width: 576px) {
+      font-size: 2.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      font-size: 3rem;
+    }
+    
+    @media (min-width: 992px) {
+      font-size: 3.5rem;
+    }
+  }
+  
+  &__subheadline {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @media (min-width: 576px) {
+      font-size: 1.25rem;
+    }
+    
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+  
+  &__cta {
+    margin-top: 2rem;
+    
+    .btn {
+      margin-bottom: 0.5rem;
+      
+      @media (min-width: 576px) {
+        margin-bottom: 0;
+      }
+    }
+    
+    @media (max-width: 575.98px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+    
+    @media (max-width: 339.98px) {
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+      }
+    }
+  }
+}

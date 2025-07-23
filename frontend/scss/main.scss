@@ -2,5 +2,25 @@
 // \frontend/scss/main.scss
 // ------------------------------------------------------------
 
-// legacy bridge (safe to delete later)
-@use 'pages/landing';
+// Variables and mixins
+@use "./variables.scss" as vars;
+@use "./mixins.scss" as mix;
+
+// Utilities
+@use "./utilities.scss" as utils;
+
+// Components
+@use "./components.scss" as components;
+
+// Sections
+@use "sections/hero";
+@use "sections/how-it-works";
+@use "sections/use-cases";
+@use "sections/roadmap";
+@use "sections/video";
+@use "sections/credibility";
+@use "sections/lead-capture";
+
+// Pages
+@use "pages/landing";
+@use "pages/thanks";

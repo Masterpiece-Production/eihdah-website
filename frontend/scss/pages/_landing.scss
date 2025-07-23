@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
 // pages/_landing.scss  (compile entry)
 // -----------------------------------------------------------------------------
-@use "bootstrap/scss/bootstrap" as *;
-@use "../_variables"   as vars;
-@use "../_mixins"      as mix;
-@use "../_utilities"   as utils;
-@use "../_components";
+@use "bootstrap/scss/bootstrap" as bs;
+@use "../variables.scss" as vars;
+@use "../mixins.scss"      as mix;
+@use "../utilities.scss"   as utils;
+@use "../components.scss";
 
 body.page-landing {
   font-family: vars.$font-family-sans-serif;
@@ -14,7 +14,7 @@ body.page-landing {
 
 #hero.hero-bg {
   min-height: 90vh;
-  @include mix.fluid-type(utils.$h1-min, utils.$h1-max);
+  @include mix.fluid-type(vars.$h1-min, vars.$h1-max);
   background:
     radial-gradient(ellipse at top, rgba(vars.$primary, .30), transparent),
     radial-gradient(ellipse at bottom, rgba(vars.$secondary, .30), transparent);
@@ -29,12 +29,12 @@ body.page-landing {
 #features {
   @include utils.spacing(padding, 2);
   h2 {
-    @include mix.fluid-type(utils.$h2-min, utils.$h2-max);
+    @include mix.fluid-type(vars.$h2-min, vars.$h2-max);
   }
   .feature-item {
     @include utils.spacing(margin-bottom, 1);
     h3 {
-      @include mix.fluid-type(utils.$h3-min, utils.$h3-max);
+      @include mix.fluid-type(vars.$h3-min, vars.$h3-max);
     }
   }
 }

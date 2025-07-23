@@ -1,0 +1,92 @@
+// frontend/scss/sections/_lead-capture.scss
+// ------------------------------------------------------------
+// Styles for the lead capture section and waitlist form
+// ------------------------------------------------------------
+
+@use '../variables' as vars;
+
+#cta {
+  background-color: vars.$light;
+  padding: vars.$section-spacing-md 0;
+  
+  .waitlist-form {
+    max-width: 600px;
+    margin: 0 auto;
+    
+    .form-floating {
+      width: 100%;
+      
+      .form-control {
+        height: calc(3.5rem + 2px);
+        padding: 1rem 0.75rem;
+        
+        &:focus {
+          box-shadow: 0 0 0 0.25rem rgba(vars.$primary, 0.25);
+          border-color: vars.$primary;
+        }
+      }
+      
+      label {
+        padding: 1rem 0.75rem;
+      }
+    }
+    
+    .form-text {
+      font-size: 0.75rem;
+      color: vars.$gray-600;
+      margin-top: 0.25rem;
+    }
+    
+    .btn {
+      height: calc(3.5rem + 2px);
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .spinner-border {
+        margin-right: 0.5rem;
+      }
+    }
+    
+    @media (max-width: vars.$screen-md-max) {
+      .form-floating {
+        margin-bottom: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+  
+  .alert-container {
+    max-width: 600px;
+    margin: 0 auto;
+    
+    .alert {
+      padding: 0.75rem 1rem;
+      border-radius: vars.$border-radius;
+      margin-bottom: 0;
+      
+      &.alert-danger {
+        background-color: rgba(vars.$danger, 0.1);
+        border-color: rgba(vars.$danger, 0.2);
+        color: darken(vars.$danger, 10%);
+      }
+      
+      &.alert-success {
+        background-color: rgba(vars.$success, 0.1);
+        border-color: rgba(vars.$success, 0.2);
+        color: darken(vars.$success, 10%);
+      }
+    }
+  }
+}
