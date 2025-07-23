@@ -44,10 +44,21 @@ with a.app_context():
     for tpl_name, (outfile, indexable) in PAGES.items():
         path = "/" if outfile == "index.html" else f"/{outfile}"
         with a.test_request_context(path):
+            # Get page metadata from app.py if available
+            page_name = tpl_name.replace(".html", "")
+            page_meta = getattr(a, "PAGE_METADATA", {}).get(page_name, {})
+            
+            # Determine page type for structured data
+            page_type = "home" if outfile == "index.html" else outfile.replace(".html", "")
+            
             html = (
                 a.jinja_env
                 .get_or_select_template(tpl_name)
-                .render(GA_TRACKING_CODE=GA_TRACKING_CODE)
+                .render(
+                    GA_TRACKING_CODE=GA_TRACKING_CODE,
+                    page_meta=page_meta,
+                    page_type=page_type
+                )
             )
         Path(outfile).write_text(html, encoding="utf-8")
         if indexable:

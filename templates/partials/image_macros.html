@@ -1,0 +1,40 @@
+{# templates/partials/image_macros.html #}
+
+{# Responsive image macro with WebP support and lazy loading #}
+{% macro responsive_image(src, alt, width=None, height=None, class_name=None, lazy=True) %}
+<picture>
+  <source srcset="{{ url_for('static', filename=src|replace('.jpg', '.webp')|replace('.png', '.webp')) }}" type="image/webp">
+  <img 
+    src="{{ url_for('static', filename=src) }}" 
+    alt="{{ alt }}"
+    {% if width %}width="{{ width }}"{% endif %}
+    {% if height %}height="{{ height }}"{% endif %}
+    {% if class_name %}class="{{ class_name }}"{% endif %}
+    {% if lazy %}loading="lazy" decoding="async"{% endif %}
+  >
+</picture>
+{% endmacro %}
+
+{# Responsive image with aspect ratio container #}
+{% macro responsive_image_container(src, alt, aspect_ratio='16-9', class_name=None, lazy=True) %}
+<div class="responsive-image-container aspect-ratio-{{ aspect_ratio|replace('-', '-') }}">
+  {{ responsive_image(src, alt, class_name=class_name, lazy=lazy) }}
+</div>
+{% endmacro %}
+
+{# Hero image with preload option #}
+{% macro hero_image(src, alt, width=None, height=None, class_name=None, preload=False) %}
+{% if preload %}
+<link rel="preload" href="{{ url_for('static', filename=src) }}" as="image">
+{% endif %}
+<picture>
+  <source srcset="{{ url_for('static', filename=src|replace('.jpg', '.webp')|replace('.png', '.webp')) }}" type="image/webp">
+  <img 
+    src="{{ url_for('static', filename=src) }}" 
+    alt="{{ alt }}"
+    {% if width %}width="{{ width }}"{% endif %}
+    {% if height %}height="{{ height }}"{% endif %}
+    {% if class_name %}class="{{ class_name }}"{% endif %}
+  >
+</picture>
+{% endmacro %}

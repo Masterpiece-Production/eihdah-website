@@ -1,0 +1,126 @@
+{% if page_type == 'home' %}
+<!-- Product Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EihDah",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "SentimentAnalysisTool",
+  "operatingSystem": "Web",
+  "description": "AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/ComingSoon"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "12"
+  },
+  "featureList": [
+    "Sentiment analysis across social media platforms",
+    "AI-powered insights from public conversations",
+    "Visual analytics and reporting",
+    "Influencer identification"
+  ],
+  "keywords": "sentiment analysis, social media analytics, AI, YouTube analytics, Instagram analytics, Twitter analytics"
+}
+</script>
+
+<!-- Product Schema (additional) -->
+{% include 'partials/product_schema.html' %}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What platforms does EihDah currently support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EihDah currently supports YouTube comments for our MVP version. We're actively developing integrations for Instagram and X (formerly Twitter), scheduled for Q3 2025. Additional platforms will be added based on user demand and API availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is EihDah's sentiment analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EihDah uses Google Cloud's Natural Language Processing API, which achieves over 85% accuracy in sentiment detection across 25+ languages. Our system is particularly effective at detecting nuance, sarcasm, and emotional context in social media conversations. We continuously train our models to improve accuracy for specific industries and use cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data privacy measures does EihDah implement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EihDah only analyzes publicly available comments and posts. We do not store personal identifiers beyond what is publicly visible. All data is processed in compliance with GDPR and CCPA regulations. Our system uses secure, encrypted connections and follows industry best practices for data protection. You maintain full control over your data and can request deletion at any time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is EihDah priced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EihDah will offer tiered subscription plans based on data volume and features needed. Early access users who join our waitlist will receive special founding member pricing and benefits. Detailed pricing will be announced closer to our full launch, but we're committed to providing affordable options for businesses of all sizes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will EihDah offer an API for developers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Our \"State of Mind\" API is planned for Q4 2025. This will allow developers to integrate EihDah's sentiment analysis capabilities into their own applications and workflows. The API will include endpoints for real-time sentiment analysis, historical data retrieval, and trend identification. We'll provide comprehensive documentation and SDKs for popular programming languages."
+      }
+    }
+  ]
+}
+</script>
+{% elif page_type == 'contact' %}
+<!-- ContactPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact EihDah",
+  "description": "Get in touch with the EihDah team for questions or support."
+}
+</script>
+{% elif page_type == 'privacy' %}
+<!-- WebPage Schema for Privacy Policy -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy | EihDah",
+  "description": "Learn how EihDah handles your data and protects your privacy."
+}
+</script>
+{% elif page_type == 'terms' %}
+<!-- WebPage Schema for Terms of Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Terms of Service | EihDah",
+  "description": "Terms and conditions for using the EihDah platform."
+}
+</script>
+{% elif page_type == 'thanks' %}
+<!-- WebPage Schema for Thanks Page -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Thanks for Joining | EihDah",
+  "description": "Thank you for joining the EihDah waitlist. We'll keep you updated on our progress."
+}
+</script>
+{% endif %}

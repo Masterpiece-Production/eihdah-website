@@ -7,6 +7,7 @@
 // - Mailchimp API integration
 // - Use-case/FAQ accordion
 // - Demo video embed with lazy loading
+// - Image optimization (WebP support, lazy loading, layout shift prevention)
 // ------------------------------------------------------------
 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -14,6 +15,8 @@ import { initAnimations } from './utils/animations.js';
 import { initWaitlistForm } from './components/waitlist-form.js';
 import { initAccordion } from './components/accordion.js';
 import { initVideoEmbed } from './components/video-embed.js';
+import { initLazyLoading, preventLayoutShifts } from './image-optimization.js';
+import { initFontOptimization } from './font-optimization.js';
 
 /* ── Initialize components ─────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,6 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize video embed
   initVideoEmbed();
+  
+  // Initialize image optimizations
+  initLazyLoading();
+  preventLayoutShifts();
+  
+  // Initialize font optimizations
+  initFontOptimization();
 });
 
 /* ── Smooth scroll for anchor links ─────────────────────── */

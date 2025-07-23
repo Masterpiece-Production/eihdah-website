@@ -1,0 +1,41 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build site
+        run: npm run build
+        
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://eihdah.com/
+            https://eihdah.com/contact.html
+            https://eihdah.com/thanks.html
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: './.github/lighthouse-config.json'
+          
+      - name: Save Lighthouse report
+        uses: actions/upload-artifact@v3
+        with:
+          name: lighthouse-results
+          path: '.lighthouseci'

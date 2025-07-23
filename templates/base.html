@@ -5,24 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>EihDah – AI Sentiment Analysis</title>
-  <meta name="description" content="AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.">
-  <meta name="keywords" content="EihDah, sentiment analysis, AI, social media analytics, public opinion, YouTube analytics">
-  <link rel="canonical" href="https://eihdah.com/">
+  <title>{% block title %}EihDah – AI Sentiment Analysis{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.{% endblock %}">
+  <meta name="keywords" content="{% block meta_keywords %}EihDah, sentiment analysis, AI, social media analytics, public opinion, YouTube analytics{% endblock %}">
+  <link rel="canonical" href="{% block canonical_url %}https://eihdah.com/{% endblock %}">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="EihDah">
-  <meta property="og:title" content="EihDah – AI Sentiment Analysis Platform">
-  <meta property="og:description" content="AI‑powered public sentiment insights from real conversations.">
-  <meta property="og:image" content="/static/img/og-cover.png">
-  <meta property="og:url" content="https://eihdah.com/">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EihDah – AI Sentiment Analysis Platform">
-  <meta name="twitter:description" content="AI‑powered public sentiment insights from real conversations.">
-  <meta name="twitter:image" content="/static/img/og-cover.png">
+  <!-- Open Graph and Twitter Card Tags -->
+  {% include 'partials/og_tags.html' %}
 
   <!-- Favicons and Browser Assets -->
   <link rel="apple-touch-icon" sizes="180x180" href="/static/img/icons/apple-touch-icon.png">
@@ -42,6 +31,16 @@
 <meta http-equiv="Content-Security-Policy"
       content="default-src 'self'; img-src 'self' https: data:; object-src 'none'; upgrade-insecure-requests">
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WN26MYTNND"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WN26MYTNND');
+</script>
+
 <!-- Organization schema -->
 <script type="application/ld+json">
 {
@@ -49,9 +48,38 @@
   "@type": "Organization",
   "name": "EihDah",
   "url": "https://eihdah.com",
-  "logo": "https://eihdah.com/static/img/logo.svg"
+  "logo": "https://eihdah.com/static/img/logo.svg",
+  "sameAs": [
+    "https://www.linkedin.com/company/eihdah/",
+    "https://twitter.com/eihdah"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": "https://eihdah.com/contact.html"
+  }
 }
 </script>
+
+<!-- Website schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "EihDah",
+  "url": "https://eihdah.com",
+  "description": "AI‑powered sentiment analysis platform for social media",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://eihdah.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Page-specific structured data -->
+{% include 'partials/structured_data.html' %}
+{% include 'partials/article_schema.html' %}
 <!-- End of security & SEO -->
 
 <!-- Styles -->
@@ -62,7 +90,10 @@
   <!-- Header include (static) -->
   {% include 'partials/header.html' ignore missing %}
 
-  <main id="content">
+  <!-- Breadcrumbs -->
+  {% include 'partials/breadcrumbs.html' %}
+
+  <main id="content" role="main" itemscope itemtype="https://schema.org/WebPage">
     {% block content %}{% endblock %}
   </main>
 
@@ -70,10 +101,12 @@
 
   <!-- Scripts -->
   <script defer src="/static/dist/main.js"></script>
+  <script defer src="/static/dist/lazy_loading.js"></script>
   
   {% if debug %}
-  <!-- Mobile Layout Testing Script (development only) -->
+  <!-- Development Testing Scripts -->
   <script defer src="/static/dist/test_mobile_layout.js"></script>
+  <script defer src="/static/dist/test_cls.js"></script>
   {% endif %}
 </body>
 </html>

@@ -8,6 +8,11 @@ import { fileURLToPath } from 'url';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import { PurgeCSSPlugin } from 'purgecss-webpack-plugin';
+import * as glob from 'glob';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CriticalCssPlugin from 'critical-css-webpack-plugin';
 
 // -----------------------------------------------------------------------------
 // Paths -----------------------------------------------------------------------
@@ -16,10 +21,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname  = dirname(__filename);
 
 const SRC_JS    = './frontend/js/main.js';
+const SRC_LAZY_LOADING = './frontend/js/lazy-loading.js'; // lazy loading script
 const SRC_SCSS  = './frontend/scss/pages/_landing.scss'; // marketing bundle
 const SRC_SCSS_APP = './frontend/scss/main.scss';        // legacy / app styles
 const SRC_TEST_MOBILE = './scripts/test_mobile_layout.js'; // mobile testing script
+const SRC_TEST_CLS = './scripts/test_cls.js'; // CLS testing script
 const DIST_DIR  = path.resolve(__dirname, 'static/dist');
+const TEMPLATES_DIR = path.resolve(__dirname, 'templates');
+const HTML_FILES = path.resolve(__dirname, '*.html');
 
 // -----------------------------------------------------------------------------
 // Helpers ---------------------------------------------------------------------
@@ -38,9 +47,11 @@ export default {
 
   entry: {
     main: SRC_JS,          // JS bundle (Bootstrap JS, interactivity)
+    lazy_loading: SRC_LAZY_LOADING, // lazy loading script
     landing: SRC_SCSS,     // landing‑page CSS only
     app: SRC_SCSS_APP,     // dashboard / legacy CSS (optional)
     test_mobile_layout: SRC_TEST_MOBILE, // mobile testing script
+    test_cls: SRC_TEST_CLS, // CLS testing script
   },
 
   output: {
@@ -126,15 +137,84 @@ export default {
   },
 
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].css' }),
+    new MiniCssExtractPlugin({ 
+      filename: '[name].css',
+      // Extract critical CSS for faster rendering
+      chunkFilename: '[id].css',
+    }),
     new CleanWebpackPlugin(),
+    // Purge unused CSS
+    new PurgeCSSPlugin({
+      paths: glob.sync([
+        `${TEMPLATES_DIR}/**/*.html`,
+        `${HTML_FILES}`,
+        './frontend/js/**/*.js',
+      ]),
+      safelist: {
+        standard: [/^aos/, /^fade/, /^show/, /^collapse/, /^modal/, /^bs-/, /^btn/, /^form/, /^alert/],
+        deep: [/^modal/, /^bs-/, /^accordion/],
+      },
+    }),
+    // Generate critical CSS for above-the-fold content
+    ...(isProd ? [
+      new CriticalCssPlugin({
+        base: DIST_DIR,
+        src: 'index.html',
+        target: 'critical.css',
+        inline: true,
+        width: 1200,
+        height: 900,
+        penthouse: {
+          blockJSRequests: false,
+        },
+      })
+    ] : []),
   ],
 
   optimization: {
-    minimizer: ['...', new CssMinimizerPlugin()],
+    minimizer: [
+      '...', 
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+              normalizeWhitespace: true,
+            },
+          ],
+        },
+      }),
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+          compress: {
+            drop_console: isProd,
+            drop_debugger: isProd,
+          },
+        },
+        extractComments: false,
+      }),
+    ],
     splitChunks: {
       chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
     },
+    runtimeChunk: 'single',
   },
 
   devServer: {

@@ -1,0 +1,21 @@
+{% if product %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ product.name }}",
+  "description": "{{ product.description }}",
+  "image": "{{ product.image }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "EihDah"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "{{ product.price }}",
+    "priceCurrency": "{{ product.currency }}",
+    "availability": "{{ product.availability }}"
+  }
+}
+</script>
+{% endif %}

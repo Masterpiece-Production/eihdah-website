@@ -5,24 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>EihDah – AI Sentiment Analysis</title>
+  <title>Contact – EihDah</title>
   <meta name="description" content="AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.">
   <meta name="keywords" content="EihDah, sentiment analysis, AI, social media analytics, public opinion, YouTube analytics">
   <link rel="canonical" href="https://eihdah.com/">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="EihDah">
-  <meta property="og:title" content="EihDah – AI Sentiment Analysis Platform">
-  <meta property="og:description" content="AI‑powered public sentiment insights from real conversations.">
-  <meta property="og:image" content="/static/img/og-cover.png">
-  <meta property="og:url" content="https://eihdah.com/">
+  <!-- Open Graph and Twitter Card Tags -->
+  
+<!-- Default Open Graph Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EihDah">
+<meta property="og:title" content="EihDah – AI Sentiment Analysis Platform">
+<meta property="og:description" content="AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.">
+<meta property="og:image" content="https://eihdah.com/static/img/og-cover.png">
+<meta property="og:url" content="https://eihdah.com/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EihDah – AI Sentiment Analysis Platform">
-  <meta name="twitter:description" content="AI‑powered public sentiment insights from real conversations.">
-  <meta name="twitter:image" content="/static/img/og-cover.png">
+<!-- Default Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@eihdah">
+<meta name="twitter:title" content="EihDah – AI Sentiment Analysis Platform">
+<meta name="twitter:description" content="AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.">
+<meta name="twitter:image" content="https://eihdah.com/static/img/og-cover.png">
+<meta name="twitter:creator" content="@eihdah">
+
 
   <!-- Favicons and Browser Assets -->
   <link rel="apple-touch-icon" sizes="180x180" href="/static/img/icons/apple-touch-icon.png">
@@ -42,6 +50,16 @@
 <meta http-equiv="Content-Security-Policy"
       content="default-src 'self'; img-src 'self' https: data:; object-src 'none'; upgrade-insecure-requests">
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WN26MYTNND"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WN26MYTNND');
+</script>
+
 <!-- Organization schema -->
 <script type="application/ld+json">
 {
@@ -49,9 +67,48 @@
   "@type": "Organization",
   "name": "EihDah",
   "url": "https://eihdah.com",
-  "logo": "https://eihdah.com/static/img/logo.svg"
+  "logo": "https://eihdah.com/static/img/logo.svg",
+  "sameAs": [
+    "https://www.linkedin.com/company/eihdah/",
+    "https://twitter.com/eihdah"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": "https://eihdah.com/contact.html"
+  }
 }
 </script>
+
+<!-- Website schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "EihDah",
+  "url": "https://eihdah.com",
+  "description": "AI‑powered sentiment analysis platform for social media",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://eihdah.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Page-specific structured data -->
+
+<!-- ContactPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact EihDah",
+  "description": "Get in touch with the EihDah team for questions or support."
+}
+</script>
+
+
 <!-- End of security & SEO -->
 
 <!-- Styles -->
@@ -92,7 +149,10 @@
 <!-- Spacer to offset fixed-top navbar -->
 <div style="height: 4.5rem"></div>
 
-  <main id="content">
+  <!-- Breadcrumbs -->
+  
+
+  <main id="content" role="main" itemscope itemtype="https://schema.org/WebPage">
     
 <section class="container py-5" style="max-width:640px">
   <h1 class="h3 mb-4 text-center">Contact Us</h1>
@@ -135,6 +195,7 @@
 
   <!-- Scripts -->
   <script defer src="/static/dist/main.js"></script>
+  <script defer src="/static/dist/lazy_loading.js"></script>
   
   
 </body>

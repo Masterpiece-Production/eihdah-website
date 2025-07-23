@@ -1,0 +1,25 @@
+{% if article %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ article.title }}",
+  "description": "{{ article.description }}",
+  "image": "{{ article.image }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ article.author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EihDah",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://eihdah.com/static/img/logo.svg"
+    }
+  },
+  "datePublished": "{{ article.date_published }}",
+  "dateModified": "{{ article.date_modified }}"
+}
+</script>
+{% endif %}

@@ -13,6 +13,8 @@ import mailchimp_marketing as MailchimpMarketing
 from mailchimp_marketing.api_client import ApiClientError
 from dotenv import load_dotenv
 
+from image_helpers import register_jinja_filters
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -21,6 +23,9 @@ SUBSCRIBER_CSV = BASE_DIR / "subscribers.csv"
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.config["GA_TRACKING_CODE"] = os.getenv("GA_TRACKING_CODE", "")
+
+# Register Jinja2 filters for responsive images
+register_jinja_filters(app)
 
 # Mailchimp configuration
 MAILCHIMP_API_KEY = os.getenv("MAILCHIMP_API_KEY", "")
@@ -62,38 +67,116 @@ def inject_globals():
     )
 
 
+# ── Page Metadata for Open Graph Tags and SEO ──────────────────
+PAGE_METADATA = {
+    "landing": {
+        "title": "EihDah – AI Sentiment Analysis Platform",
+        "description": "AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more. Transform social media data into actionable business intelligence.",
+        "url": "https://eihdah.com/",
+        "image": "https://eihdah.com/static/img/og-cover.png",
+        "og_type": "website",
+        "twitter_card": "summary_large_image",
+        "og_image_width": "1200",
+        "og_image_height": "630",
+        "keywords": "sentiment analysis, AI, social media analytics, public opinion, YouTube analytics, Instagram analytics, Twitter analytics, social listening, brand monitoring"
+    },
+    "privacy": {
+        "title": "Privacy Policy | EihDah",
+        "description": "Learn how EihDah handles your data and protects your privacy.",
+        "url": "https://eihdah.com/privacy.html",
+        "image": "https://eihdah.com/static/img/og-cover.png",
+        "og_type": "website",
+        "twitter_card": "summary",
+        "og_image_width": "1200",
+        "og_image_height": "630"
+    },
+    "terms": {
+        "title": "Terms of Service | EihDah",
+        "description": "Terms and conditions for using the EihDah platform.",
+        "url": "https://eihdah.com/terms.html",
+        "image": "https://eihdah.com/static/img/og-cover.png",
+        "og_type": "website",
+        "twitter_card": "summary",
+        "og_image_width": "1200",
+        "og_image_height": "630"
+    },
+    "contact": {
+        "title": "Contact Us | EihDah",
+        "description": "Get in touch with the EihDah team for questions or support.",
+        "url": "https://eihdah.com/contact.html",
+        "image": "https://eihdah.com/static/img/og-cover.png",
+        "og_type": "website",
+        "twitter_card": "summary",
+        "og_image_width": "1200",
+        "og_image_height": "630"
+    },
+    "thanks": {
+        "title": "Thanks for Joining | EihDah",
+        "description": "Thank you for joining the EihDah waitlist. We'll keep you updated on our progress.",
+        "url": "https://eihdah.com/thanks.html",
+        "image": "https://eihdah.com/static/img/og-thanks.png",
+        "og_type": "website",
+        "twitter_card": "summary_large_image",
+        "og_image_width": "1200",
+        "og_image_height": "630"
+    }
+}
+
 # ── Routes ───────────────────────────────────────────────
 @app.route("/")
 def landing():
-    return render_template("landing.html")
+    # Define breadcrumbs for the landing page
+    breadcrumbs = []
+    
+    # Define product schema data
+    product = {
+        "name": "EihDah",
+        "description": "AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more.",
+        "image": "https://eihdah.com/static/img/logo.svg",
+        "price": "0",
+        "currency": "USD",
+        "availability": "https://schema.org/ComingSoon"
+    }
+    
+    return render_template(
+        "landing.html", 
+        page_meta=PAGE_METADATA["landing"], 
+        page_type="home",
+        breadcrumbs=breadcrumbs,
+        product=product
+    )
 
 
 # ── Privacy ──
 @app.route("/privacy")
 @app.route("/privacy.html")          # <- alias
 def privacy():
-    return render_template("privacy.html")
+    breadcrumbs = [{"title": "Privacy Policy", "url": "/privacy.html"}]
+    return render_template("privacy.html", page_meta=PAGE_METADATA["privacy"], page_type="privacy", breadcrumbs=breadcrumbs)
 
 
 # ── Terms ──
 @app.route("/terms")
 @app.route("/terms.html")            # <- alias
 def terms():
-    return render_template("terms.html")
+    breadcrumbs = [{"title": "Terms of Service", "url": "/terms.html"}]
+    return render_template("terms.html", page_meta=PAGE_METADATA["terms"], page_type="terms", breadcrumbs=breadcrumbs)
 
 
 # ── Contact ──
 @app.route("/contact")
 @app.route("/contact.html")          # <- alias
 def contact():
-    return render_template("contact.html")
+    breadcrumbs = [{"title": "Contact Us", "url": "/contact.html"}]
+    return render_template("contact.html", page_meta=PAGE_METADATA["contact"], page_type="contact", breadcrumbs=breadcrumbs)
 
 
 # ── Thanks page (new) ──
 @app.route("/thanks")
 @app.route("/thanks.html")          # <- alias
 def thanks():
-    return render_template("thanks.html")
+    breadcrumbs = [{"title": "Thank You", "url": "/thanks.html"}]
+    return render_template("thanks.html", page_meta=PAGE_METADATA["thanks"], page_type="thanks", breadcrumbs=breadcrumbs)
 
 
 @app.route("/subscribe", methods=["POST"])

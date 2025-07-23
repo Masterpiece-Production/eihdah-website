@@ -1,290 +1,492 @@
-{# templates/landing.html #}
-{% extends "base.html" %}
-{% block title %}EihDah – AI Sentiment Analysis{% endblock %}
-{% block body_class %}page-landing{% endblock %}
+{# templates/landing.html #} 
+{% extends "base.html" %} 
+
+{% block title %}EihDah – AI Sentiment Analysis{% endblock %} 
+
+{% block meta_description %}AI‑powered public sentiment insights from real conversations across YouTube, Instagram, X, and more. Transform social media data into actionable business intelligence.{% endblock %}
+
+{% block meta_keywords %}EihDah, sentiment analysis, AI, social media analytics, public opinion, YouTube analytics, Instagram analytics, Twitter analytics, social listening, brand monitoring{% endblock %}
+
+{% block body_class %}page-landing{% endblock %} 
+
+{# Import image macros #}
+{% from "partials/image_macros.html" import responsive_image, responsive_image_container, hero_image %}
 
 {% block content %}
 <!-- ── Hero ─────────────────────────────────────────────── -->
-<section id="hero"
-         class="hero hero-bg d-flex flex-column justify-content-center align-items-center text-center text-white">
+<section
+  id="hero"
+  class="hero hero-bg d-flex flex-column justify-content-center align-items-center text-center text-white"
+  aria-labelledby="hero-heading"
+  itemscope itemtype="https://schema.org/WPHeader"
+>
   <div class="container-lg">
-    <img src="{{ url_for('static', filename='img/logo.svg') }}"
-         alt="EihDah logo"
-         width="160" height="160"
-         class="mb-4"
-         data-aos="fade-down" data-aos-duration="800">
-    <h1 class="hero__headline display-4 fw-bold mb-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+    {{ hero_image('img/logo.svg', 'EihDah logo', width=160, height=160, class_name='mb-4', preload=true) }}
+    <h1
+      id="hero-heading"
+      class="hero__headline display-4 fw-bold mb-3"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="200"
+      itemprop="headline"
+    >
       Unlock Social Sentiment Intelligence with AI-Powered Analytics
     </h1>
-    <p class="hero__subheadline lead mb-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-      Transform public conversations into actionable insights across YouTube, Instagram, X and beyond.
+    <p
+      class="hero__subheadline lead mb-4"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="400"
+      itemprop="description"
+    >
+      Transform public conversations into actionable insights across YouTube,
+      Instagram, X and beyond.
     </p>
-    <div class="hero__cta" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-      <a href="#cta" class="btn btn-primary btn-lg px-4 py-2">Join the Waitlist</a>
-      <a href="#how-it-works" class="btn btn-outline-light btn-lg px-4 py-2 ms-2 d-none d-sm-inline-block">See How It Works</a>
+    <div
+      class="hero__cta"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="600"
+    >
+      <a href="#cta" class="btn btn-primary btn-lg px-4 py-2" role="button"
+        >Join the Waitlist</a
+      >
+      <a
+        href="#how-it-works"
+        class="btn btn-outline-light btn-lg px-4 py-2 ms-2 d-none d-sm-inline-block"
+        role="button"
+        >See How It Works</a
+      >
     </div>
   </div>
 </section>
 
 <!-- ── How It Works ─────────────────────────────────────── -->
-<section id="how-it-works" class="how-it-works py-5">
+<section id="how-it-works" class="how-it-works py-5" aria-labelledby="how-it-works-heading" itemscope itemtype="https://schema.org/ItemList">
   <div class="container">
-    <h2 class="how-it-works__title h2 mb-5 text-center" data-aos="fade-up">How It Works</h2>
-    
+    <h2 id="how-it-works-heading" class="how-it-works__title h2 mb-5 text-center" data-aos="fade-up" itemprop="name">
+      How It Works
+    </h2>
+
     <div class="how-it-works__diagram">
       <div class="row g-4">
         <!-- Step 1 -->
         <div class="col-lg-3 col-md-6">
           <div class="step" data-aos="fade-up" data-aos-delay="100">
             <div class="step__icon mx-auto mb-3">
-              <img src="{{ url_for('static', filename='img/icon-connect.svg') }}" 
-                   alt="Connect icon" 
-                   width="48" height="48"
-                   class="img-fluid"
-                   loading="lazy" decoding="async">
+              {{ responsive_image('img/icon-connect.svg', 'Connect icon', width=48, height=48, class_name='img-fluid') }}
             </div>
             <div class="step__number mx-auto">1</div>
-            <h3 class="step__title h5">Connect Your Channels</h3>
-            <p class="step__description">Link your YouTube, Instagram, X, and other social media accounts to start collecting conversation data.</p>
+            <h3 class="step__title h5">Decode Public Contextual Sentiment</h3>
+            <p class="step__description">
+              Start with a simple shareable public Social Media link Like YouTube, Instagram, X,
+              etc..to start analyzing conversation sentiment journey.
+            </p>
           </div>
         </div>
-        
+
         <!-- Step 2 -->
         <div class="col-lg-3 col-md-6">
           <div class="step" data-aos="fade-up" data-aos-delay="200">
             <div class="step__icon mx-auto mb-3">
-              <img src="{{ url_for('static', filename='img/icon-analysis.svg') }}" 
-                   alt="Analysis icon" 
-                   width="48" height="48"
-                   class="img-fluid"
-                   loading="lazy" decoding="async">
+              {{ responsive_image('img/icon-analysis.svg', 'Analysis icon', width=48, height=48, class_name='img-fluid') }}
             </div>
             <div class="step__number mx-auto">2</div>
             <h3 class="step__title h5">AI Analysis</h3>
-            <p class="step__description">Our Google Cloud NLP engine processes comments, mentions, and conversations to understand sentiment and context.</p>
+            <p class="step__description">
+              Our Google Cloud NLP engine processes comments, mentions, and
+              conversations to understand sentiment and context.
+            </p>
           </div>
         </div>
-        
+
         <!-- Step 3 -->
         <div class="col-lg-3 col-md-6">
           <div class="step" data-aos="fade-up" data-aos-delay="300">
             <div class="step__icon mx-auto mb-3">
-              <img src="{{ url_for('static', filename='img/icon-insights.svg') }}" 
-                   alt="Insights icon" 
-                   width="48" height="48"
-                   class="img-fluid"
-                   loading="lazy" decoding="async">
+              {{ responsive_image('img/icon-insights.svg', 'Insights icon', width=48, height=48, class_name='img-fluid') }}
             </div>
             <div class="step__number mx-auto">3</div>
             <h3 class="step__title h5">Generate Insights</h3>
-            <p class="step__description">Transform raw data into visual analytics including sentiment trends, keyword clouds, and influencer identification.</p>
+            <p class="step__description">
+              Transform raw data into visual analytics including sentiment
+              trends, keyword clouds, and influencer identification.
+            </p>
           </div>
         </div>
-        
+
         <!-- Step 4 -->
         <div class="col-lg-3 col-md-6">
           <div class="step" data-aos="fade-up" data-aos-delay="400">
             <div class="step__icon mx-auto mb-3">
-              <img src="{{ url_for('static', filename='img/icon-action.svg') }}" 
-                   alt="Action icon" 
-                   width="48" height="48"
-                   class="img-fluid"
-                   loading="lazy" decoding="async">
+              {{ responsive_image('img/icon-action.svg', 'Action icon', width=48, height=48, class_name='img-fluid') }}
             </div>
             <div class="step__number mx-auto">4</div>
             <h3 class="step__title h5">Take Action</h3>
-            <p class="step__description">Use actionable insights to improve your content strategy, engage with key voices, and enhance brand perception.</p>
+            <p class="step__description">
+              Use actionable insights to improve your content strategy, engage
+              with key voices, and enhance brand perception.
+            </p>
           </div>
         </div>
       </div>
-      
+
       <!-- Visual Flow Indicators -->
-      <div class="how-it-works__flow d-none d-lg-block" data-aos="fade-in" data-aos-delay="500">
+      <div
+        class="how-it-works__flow d-none d-lg-block"
+        data-aos="fade-in"
+        data-aos-delay="500"
+      >
         <div class="flow-arrow flow-arrow--1"></div>
         <div class="flow-arrow flow-arrow--2"></div>
         <div class="flow-arrow flow-arrow--3"></div>
       </div>
     </div>
-    
+
     <!-- Additional explanation -->
-    <div class="how-it-works__explanation mt-5 text-center" data-aos="fade-up" data-aos-delay="600">
-      <p class="lead">EihDah simplifies the process of understanding public sentiment across social platforms, <br class="d-none d-md-block">
-         helping you make data-driven decisions to improve your brand's online presence.</p>
+    <div
+      class="how-it-works__explanation mt-5 text-center"
+      data-aos="fade-up"
+      data-aos-delay="600"
+    >
+      <p class="lead">
+        EihDah simplifies the process of understanding public sentiment across
+        social platforms, <br class="d-none d-md-block" />
+        helping you make data-driven decisions to improve your brand's online
+        presence.
+      </p>
       <a href="#cta" class="btn btn-primary mt-3">Get Started Today</a>
     </div>
   </div>
 </section>
 
 <!-- ── Use Cases & FAQ ─────────────────────────────────── -->
-<section id="use-cases" class="use-cases py-5">
+<section id="use-cases" class="use-cases py-5" aria-labelledby="use-cases-heading">
   <div class="container">
-    <h2 class="use-cases__title h2 mb-4 text-center" data-aos="fade-up">Use Cases & FAQ</h2>
+    <h2 id="use-cases-heading" class="use-cases__title h2 mb-4 text-center" data-aos="fade-up">
+      Use Cases & FAQ
+    </h2>
     <p class="lead text-center mb-5" data-aos="fade-up" data-aos-delay="100">
-      Discover how EihDah can transform your understanding of audience sentiment and enhance your digital strategy.
+      Discover how EihDah can transform your understanding of audience sentiment
+      and enhance your digital strategy.
     </p>
-    
+
     <div class="row">
       <div class="col-lg-10 mx-auto">
         <!-- Use Cases Accordion -->
-        <div class="use-case-accordion mb-5" id="useCaseAccordion" data-single-open="true" data-aos="fade-up" data-aos-delay="200">
+        <div
+          class="use-case-accordion mb-5"
+          id="useCaseAccordion"
+          data-single-open="true"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div class="accordion-item">
             <h3 class="accordion-header" id="useCase1Header">
-              <button class="accordion-button" type="button" 
-                      aria-expanded="true" 
-                      aria-controls="useCase1Collapse">
-                <span class="use-case-tag">Marketing</span> Content Strategy Optimization
+              <button
+                class="accordion-button"
+                type="button"
+                aria-expanded="true"
+                aria-controls="useCase1Collapse"
+              >
+                <span class="use-case-tag">Marketing</span> Content Strategy
+                Optimization
               </button>
             </h3>
-            <div id="useCase1Collapse" class="accordion-collapse show" 
-                 aria-labelledby="useCase1Header">
+            <div
+              id="useCase1Collapse"
+              class="accordion-collapse show"
+              aria-labelledby="useCase1Header"
+            >
               <div class="accordion-body">
-                <p><strong>Challenge:</strong> Understanding which content resonates with your audience across multiple platforms.</p>
-                <p><strong>Solution:</strong> EihDah analyzes sentiment patterns across your content to identify what truly engages your audience.</p>
+                <p>
+                  <strong>Challenge:</strong> Understanding which content
+                  resonates with your audience across multiple platforms.
+                </p>
+                <p>
+                  <strong>Solution:</strong> EihDah analyzes sentiment patterns
+                  across your content to identify what truly engages your
+                  audience.
+                </p>
                 <ul>
-                  <li>Track sentiment trends across different content types and topics</li>
+                  <li>
+                    Track sentiment trends across different content types and
+                    topics
+                  </li>
                   <li>Identify emotional triggers that drive engagement</li>
-                  <li>Compare sentiment across platforms to optimize cross-posting strategy</li>
-                  <li>Discover content themes that generate positive sentiment</li>
+                  <li>
+                    Compare sentiment across platforms to optimize cross-posting
+                    strategy
+                  </li>
+                  <li>
+                    Discover content themes that generate positive sentiment
+                  </li>
                 </ul>
-                <p><em>"EihDah helped us increase our positive engagement by 32% by identifying content themes that resonated with our audience."</em></p>
+                <p>
+                  <em
+                    >"EihDah helped us increase our positive engagement by 32%
+                    by identifying content themes that resonated with our
+                    audience."</em
+                  >
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div class="accordion-item">
             <h3 class="accordion-header" id="useCase2Header">
-              <button class="accordion-button collapsed" type="button" 
-                      aria-expanded="false" 
-                      aria-controls="useCase2Collapse">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                aria-expanded="false"
+                aria-controls="useCase2Collapse"
+              >
                 <span class="use-case-tag">Brand</span> Reputation Monitoring
               </button>
             </h3>
-            <div id="useCase2Collapse" class="accordion-collapse" 
-                 aria-labelledby="useCase2Header" 
-                 aria-hidden="true">
+            <div
+              id="useCase2Collapse"
+              class="accordion-collapse"
+              aria-labelledby="useCase2Header"
+              aria-hidden="true"
+            >
               <div class="accordion-body">
-                <p><strong>Challenge:</strong> Detecting shifts in brand perception before they impact your business.</p>
-                <p><strong>Solution:</strong> EihDah provides real-time sentiment tracking to identify reputation risks and opportunities.</p>
+                <p>
+                  <strong>Challenge:</strong> Detecting shifts in brand
+                  perception before they impact your business.
+                </p>
+                <p>
+                  <strong>Solution:</strong> EihDah provides real-time sentiment
+                  tracking to identify reputation risks and opportunities.
+                </p>
                 <ul>
-                  <li>Monitor sentiment around your brand across multiple platforms</li>
+                  <li>
+                    Monitor sentiment around your brand across multiple
+                    platforms
+                  </li>
                   <li>Receive alerts for sudden sentiment shifts</li>
-                  <li>Identify key influencers shaping your brand perception</li>
+                  <li>
+                    Identify key influencers shaping your brand perception
+                  </li>
                   <li>Track sentiment recovery after addressing issues</li>
                 </ul>
-                <p><em>"We identified a potential PR issue brewing on social media and addressed it before it escalated, saving our quarterly campaign."</em></p>
+                <p>
+                  <em
+                    >"We identified a potential PR issue brewing on social media
+                    and addressed it before it escalated, saving our quarterly
+                    campaign."</em
+                  >
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div class="accordion-item">
             <h3 class="accordion-header" id="useCase3Header">
-              <button class="accordion-button collapsed" type="button" 
-                      aria-expanded="false" 
-                      aria-controls="useCase3Collapse">
-                <span class="use-case-tag">Product</span> Customer Feedback Analysis
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                aria-expanded="false"
+                aria-controls="useCase3Collapse"
+              >
+                <span class="use-case-tag">Product</span> Customer Feedback
+                Analysis
               </button>
             </h3>
-            <div id="useCase3Collapse" class="accordion-collapse" 
-                 aria-labelledby="useCase3Header" 
-                 aria-hidden="true">
+            <div
+              id="useCase3Collapse"
+              class="accordion-collapse"
+              aria-labelledby="useCase3Header"
+              aria-hidden="true"
+            >
               <div class="accordion-body">
-                <p><strong>Challenge:</strong> Extracting actionable insights from thousands of customer comments.</p>
-                <p><strong>Solution:</strong> EihDah aggregates and analyzes sentiment patterns to surface valuable product feedback.</p>
+                <p>
+                  <strong>Challenge:</strong> Extracting actionable insights
+                  from thousands of customer comments.
+                </p>
+                <p>
+                  <strong>Solution:</strong> EihDah aggregates and analyzes
+                  sentiment patterns to surface valuable product feedback.
+                </p>
                 <ul>
-                  <li>Identify most-discussed product features and associated sentiment</li>
+                  <li>
+                    Identify most-discussed product features and associated
+                    sentiment
+                  </li>
                   <li>Track sentiment changes after product updates</li>
                   <li>Compare your product sentiment against competitors</li>
                   <li>Discover unmet customer needs through theme analysis</li>
                 </ul>
-                <p><em>"EihDah helped us prioritize our product roadmap based on actual user sentiment, leading to a 28% increase in user satisfaction."</em></p>
+                <p>
+                  <em
+                    >"EihDah helped us prioritize our product roadmap based on
+                    actual user sentiment, leading to a 28% increase in user
+                    satisfaction."</em
+                  >
+                </p>
               </div>
             </div>
           </div>
         </div>
-        
+
         <!-- FAQ Accordion -->
-        <h3 class="h4 text-center mb-4" data-aos="fade-up">Frequently Asked Questions</h3>
-        <div class="use-case-accordion" id="faqAccordion" data-single-open="true" data-aos="fade-up" data-aos-delay="200">
+        <h3 id="faq-heading" class="h4 text-center mb-4" data-aos="fade-up">
+          Frequently Asked Questions
+        </h3>
+        <div
+          class="use-case-accordion"
+          id="faqAccordion"
+          data-single-open="true"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          itemscope itemtype="https://schema.org/FAQPage"
+        >
           <div class="accordion-item">
             <h3 class="accordion-header" id="faq1Header">
-              <button class="accordion-button" type="button" 
-                      aria-expanded="true" 
-                      aria-controls="faq1Collapse">
+              <button
+                class="accordion-button"
+                type="button"
+                aria-expanded="true"
+                aria-controls="faq1Collapse"
+              >
                 What platforms does EihDah currently support?
               </button>
             </h3>
-            <div id="faq1Collapse" class="accordion-collapse show" 
-                 aria-labelledby="faq1Header">
+            <div
+              id="faq1Collapse"
+              class="accordion-collapse show"
+              aria-labelledby="faq1Header"
+            >
               <div class="accordion-body">
-                <p>EihDah currently supports YouTube comments for our MVP version. We're actively developing integrations for Instagram and X (formerly Twitter), scheduled for Q3 2025. Additional platforms will be added based on user demand and API availability.</p>
+                <p>
+                  EihDah currently supports YouTube comments for our MVP
+                  version. We're actively developing integrations for Instagram
+                  and X (formerly Twitter), scheduled for Q3 2025. Additional
+                  platforms will be added based on user demand and API
+                  availability.
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div class="accordion-item">
             <h3 class="accordion-header" id="faq2Header">
-              <button class="accordion-button collapsed" type="button" 
-                      aria-expanded="false" 
-                      aria-controls="faq2Collapse">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq2Collapse"
+              >
                 How accurate is EihDah's sentiment analysis?
               </button>
             </h3>
-            <div id="faq2Collapse" class="accordion-collapse" 
-                 aria-labelledby="faq2Header" 
-                 aria-hidden="true">
+            <div
+              id="faq2Collapse"
+              class="accordion-collapse"
+              aria-labelledby="faq2Header"
+              aria-hidden="true"
+            >
               <div class="accordion-body">
-                <p>EihDah uses Google Cloud's Natural Language Processing API, which achieves over 85% accuracy in sentiment detection across 25+ languages. Our system is particularly effective at detecting nuance, sarcasm, and emotional context in social media conversations. We continuously train our models to improve accuracy for specific industries and use cases.</p>
+                <p>
+                  EihDah uses Google Cloud's Natural Language Processing API,
+                  which achieves over 85% accuracy in sentiment detection across
+                  25+ languages. Our system is particularly effective at
+                  detecting nuance, sarcasm, and emotional context in social
+                  media conversations. We continuously train our models to
+                  improve accuracy for specific industries and use cases.
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div class="accordion-item">
             <h3 class="accordion-header" id="faq3Header">
-              <button class="accordion-button collapsed" type="button" 
-                      aria-expanded="false" 
-                      aria-controls="faq3Collapse">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq3Collapse"
+              >
                 What data privacy measures does EihDah implement?
               </button>
             </h3>
-            <div id="faq3Collapse" class="accordion-collapse" 
-                 aria-labelledby="faq3Header" 
-                 aria-hidden="true">
+            <div
+              id="faq3Collapse"
+              class="accordion-collapse"
+              aria-labelledby="faq3Header"
+              aria-hidden="true"
+            >
               <div class="accordion-body">
-                <p>EihDah only analyzes publicly available comments and posts. We do not store personal identifiers beyond what is publicly visible. All data is processed in compliance with GDPR and CCPA regulations. Our system uses secure, encrypted connections and follows industry best practices for data protection. You maintain full control over your data and can request deletion at any time.</p>
+                <p>
+                  EihDah only analyzes publicly available comments and posts. We
+                  do not store personal identifiers beyond what is publicly
+                  visible. All data is processed in compliance with GDPR and
+                  CCPA regulations. Our system uses secure, encrypted
+                  connections and follows industry best practices for data
+                  protection. You maintain full control over your data and can
+                  request deletion at any time.
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div class="accordion-item">
             <h3 class="accordion-header" id="faq4Header">
-              <button class="accordion-button collapsed" type="button" 
-                      aria-expanded="false" 
-                      aria-controls="faq4Collapse">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq4Collapse"
+              >
                 How is EihDah priced?
               </button>
             </h3>
-            <div id="faq4Collapse" class="accordion-collapse" 
-                 aria-labelledby="faq4Header" 
-                 aria-hidden="true">
+            <div
+              id="faq4Collapse"
+              class="accordion-collapse"
+              aria-labelledby="faq4Header"
+              aria-hidden="true"
+            >
               <div class="accordion-body">
-                <p>EihDah will offer tiered subscription plans based on data volume and features needed. Early access users who join our waitlist will receive special founding member pricing and benefits. Detailed pricing will be announced closer to our full launch, but we're committed to providing affordable options for businesses of all sizes.</p>
+                <p>
+                  EihDah will offer tiered subscription plans based on data
+                  volume and features needed. Early access users who join our
+                  waitlist will receive special founding member pricing and
+                  benefits. Detailed pricing will be announced closer to our
+                  full launch, but we're committed to providing affordable
+                  options for businesses of all sizes.
+                </p>
               </div>
             </div>
           </div>
-          
+
           <div class="accordion-item">
             <h3 class="accordion-header" id="faq5Header">
-              <button class="accordion-button collapsed" type="button" 
-                      aria-expanded="false" 
-                      aria-controls="faq5Collapse">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq5Collapse"
+              >
                 Will EihDah offer an API for developers?
               </button>
             </h3>
-            <div id="faq5Collapse" class="accordion-collapse" 
-                 aria-labelledby="faq5Header" 
-                 aria-hidden="true">
+            <div
+              id="faq5Collapse"
+              class="accordion-collapse"
+              aria-labelledby="faq5Header"
+              aria-hidden="true"
+            >
               <div class="accordion-body">
-                <p>Yes! Our "State of Mind" API is planned for Q4 2025. This will allow developers to integrate EihDah's sentiment analysis capabilities into their own applications and workflows. The API will include endpoints for real-time sentiment analysis, historical data retrieval, and trend identification. We'll provide comprehensive documentation and SDKs for popular programming languages.</p>
+                <p>
+                  Yes! Our "State of Mind" API is planned for Q4 2025. This will
+                  allow developers to integrate EihDah's sentiment analysis
+                  capabilities into their own applications and workflows. The
+                  API will include endpoints for real-time sentiment analysis,
+                  historical data retrieval, and trend identification. We'll
+                  provide comprehensive documentation and SDKs for popular
+                  programming languages.
+                </p>
               </div>
             </div>
           </div>
@@ -303,16 +505,13 @@
       <!-- 1 -->
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card h-100 shadow-sm border-0">
-          <picture>
-            <source srcset="{{ url_for('static', filename='img/feature-sentiment.webp') }}" type="image/webp">
-            <img  src="{{ url_for('static', filename='img/feature-sentiment.png') }}"
-                  alt="Dashboard sentiment breakdown"
-                  width="400" height="230"
-                  class="card-img-top img-fluid" loading="lazy" decoding="async">
-          </picture>
+          {{ responsive_image('img/feature-sentiment.png', 'Dashboard sentiment breakdown', width=400, height=230, class_name='card-img-top img-fluid') }}
           <div class="card-body">
             <h3 class="h5">Deep Sentiment Breakdown</h3>
-            <p class="small mb-0">Google Cloud NLP decodes nuance, sarcasm and emotion in 25+ languages.</p>
+            <p class="small mb-0">
+              Google Cloud NLP decodes nuance, sarcasm and emotion in 25+
+              languages.
+            </p>
           </div>
         </div>
       </div>
@@ -320,16 +519,12 @@
       <!-- 2 -->
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <div class="card h-100 shadow-sm border-0">
-          <picture>
-            <source srcset="{{ url_for('static', filename='img/feature-wordcloud.webp') }}" type="image/webp">
-            <img  src="{{ url_for('static', filename='img/feature-wordcloud.png') }}"
-                  alt="Keyword cloud visual"
-                  width="400" height="230"
-                  class="card-img-top img-fluid" loading="lazy" decoding="async">
-          </picture>
+          {{ responsive_image('img/feature-wordcloud.png', 'Keyword cloud visual', width=400, height=230, class_name='card-img-top img-fluid') }}
           <div class="card-body">
             <h3 class="h5">Keyword & Theme Clouds</h3>
-            <p class="small mb-0">Visualise hot topics instantly to guide content and messaging.</p>
+            <p class="small mb-0">
+              Visualise hot topics instantly to guide content and messaging.
+            </p>
           </div>
         </div>
       </div>
@@ -337,16 +532,12 @@
       <!-- 3 -->
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
         <div class="card h-100 shadow-sm border-0">
-          <picture>
-            <source srcset="{{ url_for('static', filename='img/feature-topcommenters.webp') }}" type="image/webp">
-            <img  src="{{ url_for('static', filename='img/feature-topcommenters.png') }}"
-                  alt="Top commenters table"
-                  width="400" height="230"
-                  class="card-img-top img-fluid" loading="lazy" decoding="async">
-          </picture>
+          {{ responsive_image('img/feature-topcommenters.png', 'Top commenters table', width=400, height=230, class_name='card-img-top img-fluid') }}
           <div class="card-body">
             <h3 class="h5">Influencer Insights</h3>
-            <p class="small mb-0">Identify voices that shape conversation and brand perception.</p>
+            <p class="small mb-0">
+              Identify voices that shape conversation and brand perception.
+            </p>
           </div>
         </div>
       </div>
@@ -358,9 +549,17 @@
 <section id="funding" class="bg-light py-5">
   <div class="container text-center">
     <h2 class="h2 mb-3" data-aos="fade-up">Funding & Programs</h2>
-    <ul class="list-group list-group-flush d-inline-block w-auto text-start shadow-sm" data-aos="fade-up" data-aos-delay="100">
-      <li class="list-group-item bg-transparent border-0">📑 Google for Startups Cloud — Application submitted</li>
-      <li class="list-group-item bg-transparent border-0">🚀 AWS Activate Credits — Pending submission</li>
+    <ul
+      class="list-group list-group-flush d-inline-block w-auto text-start shadow-sm"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      <li class="list-group-item bg-transparent border-0">
+        📑 Google for Startups Cloud — Application submitted
+      </li>
+      <li class="list-group-item bg-transparent border-0">
+        🚀 AWS Activate Credits — Pending submission
+      </li>
     </ul>
   </div>
 </section>
@@ -368,18 +567,31 @@
 <!-- ── Demo Video ────────────────────────────────────────── -->
 <section id="demo-video" class="video-section py-5">
   <div class="container">
-    <h2 class="video-section__title h2 mb-4 text-center" data-aos="fade-up">See EihDah in Action</h2>
-    
-    <div class="video-section__container" data-aos="fade-up" data-aos-delay="200">
+    <h2 class="video-section__title h2 mb-4 text-center" data-aos="fade-up">
+      See EihDah in Action
+    </h2>
+
+    <div
+      class="video-section__container"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
       <div class="video-embed-container" data-video-id="dQw4w9WgXcQ">
         <div class="video-placeholder">
-          <img src="{{ url_for('static', filename='img/video-thumbnail.jpg') }}" 
-               alt="EihDah Demo Video" 
-               class="img-fluid w-100"
-               width="800" height="450"
-               loading="lazy" decoding="async">
+          {{ responsive_image_container('img/video-thumbnail.jpg', 'EihDah Demo Video', aspect_ratio='16-9', class_name='img-fluid w-100') }}
           <div class="play-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="play-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="72"
+              height="72"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="play-icon"
+            >
               <circle cx="12" cy="12" r="10"></circle>
               <polygon points="10 8 16 12 10 16 10 8"></polygon>
             </svg>
@@ -387,9 +599,16 @@
         </div>
       </div>
     </div>
-    
-    <div class="video-section__description mt-4" data-aos="fade-up" data-aos-delay="300">
-      <p class="text-center">Watch our 90-second demo to see how EihDah transforms social media comments into actionable insights for your brand.</p>
+
+    <div
+      class="video-section__description mt-4"
+      data-aos="fade-up"
+      data-aos-delay="300"
+    >
+      <p class="text-center">
+        Watch our 90-second demo to see how EihDah transforms social media
+        comments into actionable insights for your brand.
+      </p>
       <div class="text-center mt-3">
         <a href="#cta" class="btn btn-primary">Get Early Access</a>
       </div>
@@ -401,7 +620,7 @@
 <section id="roadmap" class="roadmap py-5">
   <div class="container">
     <h2 class="h2 mb-4 text-center" data-aos="fade-up">Roadmap</h2>
-    
+
     <div class="roadmap__timeline" data-aos="fade-up" data-aos-delay="200">
       <div class="row">
         <div class="col-lg-8 mx-auto">
@@ -415,12 +634,15 @@
                 <div>
                   <h3 class="milestone__title h5">YouTube MVP</h3>
                   <div class="milestone__date">Q2 2025</div>
-                  <p class="milestone__description">Core sentiment analysis for YouTube comments with basic dashboard.</p>
+                  <p class="milestone__description">
+                    Core sentiment analysis for YouTube comments with basic
+                    dashboard.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <!-- Milestone 2 -->
           <div class="milestone">
             <div class="milestone__content">
@@ -431,12 +653,15 @@
                 <div>
                   <h3 class="milestone__title h5">Instagram & X Integration</h3>
                   <div class="milestone__date">Q3 2025</div>
-                  <p class="milestone__description">Expand platform support to Instagram and X (Twitter) with cross-platform analytics.</p>
+                  <p class="milestone__description">
+                    Expand platform support to Instagram and X (Twitter) with
+                    cross-platform analytics.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <!-- Milestone 3 -->
           <div class="milestone">
             <div class="milestone__content">
@@ -445,9 +670,14 @@
                   <span class="number">3</span>
                 </div>
                 <div>
-                  <h3 class="milestone__title h5">"State of Mind" AI & Affiliate API</h3>
+                  <h3 class="milestone__title h5">
+                    "State of Mind" AI & Affiliate API
+                  </h3>
                   <div class="milestone__date">Q4 2025</div>
-                  <p class="milestone__description">Advanced sentiment prediction engine and API for third-party integrations.</p>
+                  <p class="milestone__description">
+                    Advanced sentiment prediction engine and API for third-party
+                    integrations.
+                  </p>
                 </div>
               </div>
             </div>
@@ -463,19 +693,35 @@
   <div class="container">
     <div class="credibility__partners">
       <h2 class="h2 mb-4 text-center" data-aos="fade-up">Supported By</h2>
-      <div class="credibility__partners-logos" data-aos="fade-up" data-aos-delay="200">
-        <img src="{{ url_for('static', filename='img/partners/google-cloud-startups.svg') }}" 
-             alt="Google Cloud for Startups" 
-             width="200" height="60"
-             class="partner-logo"
-             loading="lazy" decoding="async">
-        <img src="{{ url_for('static', filename='img/partners/aws-activate.svg') }}" 
-             alt="AWS Activate" 
-             width="200" height="60"
-             class="partner-logo"
-             loading="lazy" decoding="async">
+      <div
+        class="credibility__partners-logos"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <img
+          src="{{ url_for('static', filename='img/partners/google-cloud-startups.svg') }}"
+          alt="Google Cloud for Startups"
+          width="200"
+          height="60"
+          class="partner-logo"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="{{ url_for('static', filename='img/partners/aws-activate.svg') }}"
+          alt="AWS Activate"
+          width="200"
+          height="60"
+          class="partner-logo"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
-      <p class="text-center text-muted mt-3 small" data-aos="fade-up" data-aos-delay="300">
+      <p
+        class="text-center text-muted mt-3 small"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         *Partnerships pending final confirmation
       </p>
     </div>
@@ -491,65 +737,130 @@
       <div class="col-sm-4 col-md-3" data-aos="zoom-in" data-aos-delay="100">
         <div class="team-member">
           <picture>
-            <source srcset="{{ url_for('static', filename='img/team-ayman.webp') }}" type="image/webp">
-            <img src="{{ url_for('static', filename='img/team-ayman.jpg') }}"
-                 alt="Ayman Sabek - Founder & Data Analyst at EihDah"
-                 width="120" height="120"
-                 class="rounded-circle img-fluid mb-3 team-member__photo"
-                 loading="lazy" decoding="async">
+            <source
+              srcset="{{ url_for('static', filename='img/team-ayman.webp') }}"
+              type="image/webp"
+            />
+            <img
+              src="{{ url_for('static', filename='img/team-ayman.jpg') }}"
+              alt="Ayman Sabek - Founder & Data Analyst at EihDah"
+              width="120"
+              height="120"
+              class="rounded-circle img-fluid mb-3 team-member__photo"
+              loading="lazy"
+              decoding="async"
+            />
           </picture>
           <h3 class="h6 mb-1">Ayman Sabek</h3>
           <p class="text-muted small mb-2">Founder & Data Analyst</p>
-          <a href="https://www.linkedin.com/in/aymansabek/"
-             class="team-member__linkedin d-inline-flex align-items-center"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Connect with Ayman Sabek on LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin me-1" viewBox="0 0 16 16">
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+          <a
+            href="https://www.linkedin.com/in/aymansabek/"
+            class="team-member__linkedin d-inline-flex align-items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Connect with Ayman Sabek on LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-linkedin me-1"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+              />
             </svg>
             <span class="small">Connect</span>
           </a>
         </div>
       </div>
-      
+
       <!-- Team Member 2 -->
       <div class="col-sm-4 col-md-3" data-aos="zoom-in" data-aos-delay="200">
         <div class="team-member">
-          <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-3 team-member__photo-placeholder">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person text-secondary" viewBox="0 0 16 16">
-              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+          <div
+            class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-3 team-member__photo-placeholder"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="currentColor"
+              class="bi bi-person text-secondary"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+              />
             </svg>
           </div>
-          <h3 class="h6 mb-1">Sarah Chen</h3>
+          <h3 class="h6 mb-1">X001 Chen</h3>
           <p class="text-muted small mb-2">Lead Engineer</p>
-          <a href="https://www.linkedin.com/"
-             class="team-member__linkedin d-inline-flex align-items-center"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Connect with Sarah Chen on LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin me-1" viewBox="0 0 16 16">
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+          <a
+            href="https://www.linkedin.com/"
+            class="team-member__linkedin d-inline-flex align-items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Connect with Sarah Chen on LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-linkedin me-1"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+              />
             </svg>
             <span class="small">Connect</span>
           </a>
         </div>
       </div>
-      
+
       <!-- Team Member 3 -->
       <div class="col-sm-4 col-md-3" data-aos="zoom-in" data-aos-delay="300">
         <div class="team-member">
-          <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-3 team-member__photo-placeholder">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person text-secondary" viewBox="0 0 16 16">
-              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+          <div
+            class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-3 team-member__photo-placeholder"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="currentColor"
+              class="bi bi-person text-secondary"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+              />
             </svg>
           </div>
-          <h3 class="h6 mb-1">Michael Torres</h3>
+          <h3 class="h6 mb-1">X002 Torres</h3>
           <p class="text-muted small mb-2">UX Designer</p>
-          <a href="https://www.linkedin.com/"
-             class="team-member__linkedin d-inline-flex align-items-center"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Connect with Michael Torres on LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin me-1" viewBox="0 0 16 16">
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+          <a
+            href="https://www.linkedin.com/"
+            class="team-member__linkedin d-inline-flex align-items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Connect with Michael Torres on LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-linkedin me-1"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+              />
             </svg>
             <span class="small">Connect</span>
           </a>
@@ -563,35 +874,62 @@
 <section id="cta" class="py-5 text-center">
   <div class="container">
     <h2 class="h2 mb-3" data-aos="fade-up">Be first to try EihDah</h2>
-    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">Join our waitlist for early access to the platform.</p>
-    <form action="/subscribe" method="POST" class="waitlist-form row g-2 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+      Join our waitlist for early access to the platform.
+    </p>
+    <form
+      action="/subscribe"
+      method="POST"
+      class="waitlist-form row g-2 justify-content-center"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
       <div class="col-md-5 col-lg-4">
         <label for="cta-email" class="visually-hidden">Email</label>
         <div class="form-floating">
-          <input id="cta-email" type="email" name="email"
-                 class="form-control form-control-lg" placeholder="Your email"
-                 autocomplete="email" required
-                 aria-describedby="email-help">
+          <input
+            id="cta-email"
+            type="email"
+            name="email"
+            class="form-control form-control-lg"
+            placeholder="Your email"
+            autocomplete="email"
+            required
+            aria-describedby="email-help"
+          />
           <label for="cta-email">Your email</label>
         </div>
-        <div id="email-help" class="form-text text-start">We'll send you updates about our launch.</div>
+        <div id="email-help" class="form-text text-start">
+          We'll send you updates about our launch.
+        </div>
       </div>
       <div class="col-auto d-flex align-items-center">
         <button type="submit" class="btn btn-primary btn-lg waitlist-submit">
-          <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+          <span
+            class="spinner-border spinner-border-sm d-none"
+            role="status"
+            aria-hidden="true"
+          ></span>
           <span class="button-text">Join Waitlist</span>
         </button>
       </div>
       <div class="col-12 mt-2">
-        <small class="text-muted">We respect your privacy and will never share your information.</small>
+        <small class="text-muted"
+          >We respect your privacy and will never share your information.</small
+        >
       </div>
     </form>
-    
+
     <!-- Error/Success Alert (hidden by default) -->
-    <div class="alert-container mt-3" style="display: none;">
+    <div class="alert-container mt-3" style="display: none">
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <span class="alert-message"></span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
       </div>
     </div>
   </div>
