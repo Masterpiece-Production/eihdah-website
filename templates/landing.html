@@ -458,29 +458,102 @@
   </div>
 </section>
 
+<!-- ── Partners ──────────────────────────────────────────── -->
+<section id="partners" class="credibility py-5 bg-light">
+  <div class="container">
+    <div class="credibility__partners">
+      <h2 class="h2 mb-4 text-center" data-aos="fade-up">Supported By</h2>
+      <div class="credibility__partners-logos" data-aos="fade-up" data-aos-delay="200">
+        <img src="{{ url_for('static', filename='img/partners/google-cloud-startups.svg') }}" 
+             alt="Google Cloud for Startups" 
+             width="200" height="60"
+             class="partner-logo"
+             loading="lazy" decoding="async">
+        <img src="{{ url_for('static', filename='img/partners/aws-activate.svg') }}" 
+             alt="AWS Activate" 
+             width="200" height="60"
+             class="partner-logo"
+             loading="lazy" decoding="async">
+      </div>
+      <p class="text-center text-muted mt-3 small" data-aos="fade-up" data-aos-delay="300">
+        *Partnerships pending final confirmation
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ── Team ─────────────────────────────────────────────── -->
-<section id="team" class="bg-light py-5">
+<section id="team" class="credibility__team py-5">
   <div class="container text-center">
     <h2 class="h2 mb-4" data-aos="fade-up">Our Team</h2>
     <div class="row justify-content-center g-4">
+      <!-- Team Member 1 -->
       <div class="col-sm-4 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-        <picture>
-          <source srcset="{{ url_for('static', filename='img/team-ayman.webp') }}" type="image/webp">
-          <img  src="{{ url_for('static', filename='img/team-ayman.jpg') }}"
-                alt="Ayman Sabek"
-                width="120" height="120"
-                class="rounded-circle img-fluid mb-3"
-                loading="lazy" decoding="async">
-        </picture>
-        <h3 class="h6 mb-0">
+        <div class="team-member">
+          <picture>
+            <source srcset="{{ url_for('static', filename='img/team-ayman.webp') }}" type="image/webp">
+            <img src="{{ url_for('static', filename='img/team-ayman.jpg') }}"
+                 alt="Ayman Sabek - Founder & Data Analyst at EihDah"
+                 width="120" height="120"
+                 class="rounded-circle img-fluid mb-3 team-member__photo"
+                 loading="lazy" decoding="async">
+          </picture>
+          <h3 class="h6 mb-1">Ayman Sabek</h3>
+          <p class="text-muted small mb-2">Founder & Data Analyst</p>
           <a href="https://www.linkedin.com/in/aymansabek/"
-             class="link-dark text-decoration-none"
+             class="team-member__linkedin d-inline-flex align-items-center"
              target="_blank" rel="noopener noreferrer"
-             aria-label="Ayman Sabek on LinkedIn">
-            Ayman Sabek
+             aria-label="Connect with Ayman Sabek on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin me-1" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+            </svg>
+            <span class="small">Connect</span>
           </a>
-        </h3>
-        <p class="text-muted small">Founder & Data Analyst</p>
+        </div>
+      </div>
+      
+      <!-- Team Member 2 -->
+      <div class="col-sm-4 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="team-member">
+          <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-3 team-member__photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person text-secondary" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            </svg>
+          </div>
+          <h3 class="h6 mb-1">Sarah Chen</h3>
+          <p class="text-muted small mb-2">Lead Engineer</p>
+          <a href="https://www.linkedin.com/"
+             class="team-member__linkedin d-inline-flex align-items-center"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Connect with Sarah Chen on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin me-1" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+            </svg>
+            <span class="small">Connect</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Team Member 3 -->
+      <div class="col-sm-4 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="team-member">
+          <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-3 team-member__photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person text-secondary" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            </svg>
+          </div>
+          <h3 class="h6 mb-1">Michael Torres</h3>
+          <p class="text-muted small mb-2">UX Designer</p>
+          <a href="https://www.linkedin.com/"
+             class="team-member__linkedin d-inline-flex align-items-center"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Connect with Michael Torres on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin me-1" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+            </svg>
+            <span class="small">Connect</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
