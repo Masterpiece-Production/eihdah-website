@@ -1,0 +1,61 @@
+// Team section styles
+.team-member {
+  text-align: center;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  &__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  &__photo-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  &__linkedin {
+    color: #0077b5;
+    text-decoration: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 119, 181, 0.1);
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: rgba(0, 119, 181, 0.2);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767.98px) {
+  .team-member {
+    margin-bottom: 2rem;
+    
+    &__photo,
+    &__photo-placeholder {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .team-member {
+    &__photo,
+    &__photo-placeholder {
+      width: 90px;
+      height: 90px;
+    }
+  }
+}
