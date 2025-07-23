@@ -58,28 +58,18 @@ with a.app_context():
 # -----------------------------------------------------------------------------
 # sitemap.xml & robots.txt ----------------------------------------------------
 # -----------------------------------------------------------------------------
-print("▸ Writing sitemap.xml & robots.txt …")
+print("▸ Generating enhanced sitemap.xml & robots.txt …")
 STATIC_DIR.mkdir(exist_ok=True)
 
-# sitemap
-sitemap_xml = [
-    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
-    "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">",
-]
-for url in urls_for_sitemap:
-    sitemap_xml.append(f"  <url><loc>{url}</loc></url>")
+# Import and use the enhanced sitemap generator
+import sys
+from pathlib import Path
+sys.path.append(str(Path.cwd()))
+from scripts.generate_sitemap import generate_sitemap, update_robots_txt
 
-sitemap_xml.append("</urlset>\n")
-(STATIC_DIR / "sitemap.xml").write_text(
-    "\n".join(sitemap_xml), encoding="utf-8")
-
-# robots
-robots_txt = (
-    "User-agent: *\n"
-    "Disallow: /thanks.html\n\n"
-    "Sitemap: https://eihdah.com/sitemap.xml\n"
-)
-(Path("robots.txt")).write_text(robots_txt, encoding="utf-8")
+# Generate sitemap and robots.txt with enhanced metadata
+generate_sitemap()
+update_robots_txt()
 
 print("✅  Static HTML regeneration complete")
 # -----------------------------------------------------------------------------
